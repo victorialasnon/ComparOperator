@@ -12,7 +12,7 @@
          id = "mainNav" >
         <div class = "container" >
             <a class = "navbar-brand js-scroll-trigger"
-               href = "index.php" >MY LOGO</a >
+               href = "index.php" >COMPAR_OPERATOR</a >
             <button class = "navbar-toggler"
                     type = "button"
                     data-toggle = "collapse"
@@ -27,15 +27,15 @@
                 <ul class = "navbar-nav ml-auto" >
                     <li class = "nav-item" >
                         <a class = "nav-link js-scroll-trigger"
-                           href = "#" >Link 1</a >
+                           href = "#" >HOME</a >
                     </li >
                     <li class = "nav-item" >
                         <a class = "nav-link js-scroll-trigger"
-                           href = "#" >Link 2</a >
+                           href = "#" >DESTINATIONS</a >
                     </li >
                     <li class = "nav-item" >
                         <a class = "nav-link js-scroll-trigger"
-                           href = "#" >Link 3</a >
+                           href = "#" >CONNECT AS ADMIN</a >
                     </li >
                 </ul >
             </div >
