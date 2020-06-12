@@ -12,7 +12,6 @@
 
 </header >
 <main >
-<i class="fa fa-users fa-3x"></i>
 </main >
 
 <?php include "./partials/footer.php"; ?>
