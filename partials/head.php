@@ -23,7 +23,6 @@
     />
     <!-- FONTAWESOME JS LINK -->
     <script src = "js/all.js"></script>
-    <script src = "js/script.js"></script>
 
 
     <!-- Nom du Projet -->

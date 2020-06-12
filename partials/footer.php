@@ -11,4 +11,6 @@
 
    <!-- PERSONAL JS LINK  -->
           <script src = "js/script.js"></script>
-      </footer>
+    <script src = "js/script.js"></script>
+
+</footer>
