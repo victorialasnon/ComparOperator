@@ -2,34 +2,10 @@
 
 
 <?php include "config/autoloader_inc.php"; ?>
+
 <!doctype html>
-<html lang = "en" >
-<head>
-    <meta charset = "UTF-8"/>
-    <meta name = "viewport"
-          content = "width=device-width, initial-scale=1.0"/>
 
-    <!-- CSS BOOTSTRAP LINK -->
-    <link rel = "stylesheet"
-          href = "css/bootstrap.min.css"/>
-
-    <!-- PERSONAL CSS LINK -->
-    <link rel = "stylesheet"
-          href = "css/style.css"/>
-
-    <!-- GOOGLEFONTS LINK -->
-    <link
-            href = "https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap"
-            rel = "stylesheet"
-    />
-    <!-- FONTAWESOME JS LINK -->
-    <script src = "js/all.js"></script>
-
-    <!-- Nom du Projet -->
-    <title>Project title</title>
-</head>
-
-
+<?php include "partials/head.php"; ?>
 <body >
 <header >
     <nav class = "navbar navbar-expand-lg navbar-dark bg-dark "
@@ -68,7 +44,7 @@
 
 </header >
 <main >
-
+<i class="fa fa-users fa-3x"></i>
 </main >
 
 <?php include "./partials/footer.php"; ?>
