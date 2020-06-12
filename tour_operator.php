@@ -1,5 +1,19 @@
-<?php
+<?php include "config/autoloader_inc.php"; ?>
 
-echo "hello i'm the tour operator page";
-?>
-<h1>TOUR OPERATOR PAGE</h1>
+<!doctype html>
+
+<?php include "partials/head.php"; ?>
+<body >
+<header >
+    <?php include "partials/nav.php"; ?>
+
+</header >
+<main class="destination-main">
+    <h1>tour operator page</h1>
+</main >
+
+<?php include "./partials/footer.php"; ?>
+</body >
+</html >
+
+

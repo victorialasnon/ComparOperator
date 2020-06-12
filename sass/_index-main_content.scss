@@ -1,0 +1,20 @@
+.index-main {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../images/images1.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main-container {
+    &_title {
+      font-weight: bold;
+    }
+
+    &_lead {
+      max-width: 50vw;
+      font-size: 1.5rem;
+    }
+  }
+}
