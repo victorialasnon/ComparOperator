@@ -1,4 +1,3 @@
-<?php include "config/autoloader_inc.php"; ?>
 
 <!doctype html>
 
