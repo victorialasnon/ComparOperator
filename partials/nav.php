@@ -25,7 +25,7 @@
                 </li >
                 <li class = "nav-item" >
                     <a class = "nav-link js-scroll-trigger"
-                       href = "./admin.php" >CONNECT AS ADMIN</a >
+                       href = "./admin.php" >ADMIN</a >
                 </li >
             </ul >
         </div >
