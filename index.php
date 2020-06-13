@@ -26,6 +26,9 @@
             destinations
         </a >
     </div >
+    <video id="videoBG"  autoplay muted loop >
+        <source src="videos/video.mp4" type="video/mp4">
+    </video >
 </main >
 <?php include "./partials/footer.php"; ?>
 </body >

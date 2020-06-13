@@ -2,7 +2,6 @@ html {
   height: 100%;
 
   body {
-    background: #d6e6f2;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -16,9 +15,12 @@ html {
     }
 
     footer {
-      background: $orange;
+      background: #978c70;
       padding: 3rem;
       text-align: center;
+@include mobileMax{
+  background: #b47e52;
+}
     }
   }
 

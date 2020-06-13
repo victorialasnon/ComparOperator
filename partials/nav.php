@@ -2,7 +2,7 @@
      id = "mainNav" >
     <div class = "container" >
         <a class = "navbar-brand js-scroll-trigger"
-           href = "index.php" >COMPAR_OPERATOR</a >
+           href = "index.php" ><img src="images/favicon.ico" alt="logo"></a >
         <button class = "navbar-toggler"
                 type = "button"
                 data-toggle = "collapse"
