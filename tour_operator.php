@@ -1,4 +1,9 @@
-<?php include "config/autoloader_inc.php"; ?>
+
+<?php
+
+include "config/db.php";
+include "config/autoload_class.php";
+?>
 
 <!doctype html>
 
@@ -131,6 +136,9 @@
             <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
 
         </div>
+    </div>
+    <div class="reviews-btn d-flex justify-content-center my-2">
+        <a class="btn btn-outline-primary" href="add_review.php">add a review</a >
     </div>
 </main >
 

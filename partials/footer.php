@@ -37,6 +37,6 @@
 
     <!-- PERSONAL JS LINK  -->
     <script src="js/script.js"></script >
-    <script src="js/script.js"></script >
+    <script src="js/search-script.js"></script >
 
 </footer >
