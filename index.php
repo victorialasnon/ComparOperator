@@ -1,11 +1,5 @@
 
-<<<<<<< HEAD
 
-
-
-
-=======
->>>>>>> usher_branch1
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
