@@ -20,7 +20,7 @@ include "config/autoload_class.php";
                 class="form-control mb-5" id="anythingSearch" type="text"
                 placeholder="Search for your destinations"
         >
-        <div class="card-columns">
+        <div class="card-columns col">
             <?php for ($i = 0; $i < 11; $i++): ?>
                 <div class="card" id="myDIV">
                     <img
