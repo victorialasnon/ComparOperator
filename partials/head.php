@@ -1,11 +1,13 @@
+<html lang="en">
 
-<html lang = "en" >
-
-<head>
-    <meta charset = "UTF-8"/>
-    <meta name = "viewport"
-          content = "width=device-width, initial-scale=1.0"/>
-
+<head >
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    />
+    <!-- FAVICON LINK-->
+    <link rel="icon" href="images/favicon.ico" />
     <!-- CSS BOOTSTRAP LINK -->
     <link
             href="css/bootstrap.min.css"
@@ -13,19 +15,20 @@
     />
 
     <!-- PERSONAL CSS LINK -->
-    <link rel = "stylesheet"
-          href = "css/style.css"/>
+    <link
+            rel="stylesheet"
+            href="css/style.css"
+    />
 
     <!-- GOOGLEFONTS LINK -->
     <link
-            href = "https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap"
-            rel = "stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap"
+            rel="stylesheet"
     />
     <!-- FONTAWESOME JS LINK -->
-    <script src = "js/all.js"></script>
-    <script src = "js/script.js"></script>
+    <script src="js/all.js"></script >
 
 
     <!-- Nom du Projet -->
-    <title>Project title</title>
-</head>
+    <title >ComparOperator</title >
+</head >
