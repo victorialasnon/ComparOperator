@@ -15,64 +15,31 @@ include "config/autoload_class.php";
 </header >
 <main class="destination-main">
     <div class="container">
-        <div class="city-block">
-        <div class="city-block_img"><img  src="https://source.unsplash.com/random/500x500" /></div>
-            <div class="city-block_content">
-                <h5>Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                vulputate fringilla. Donec lacinia congue felis in faucibus.
+        <h1 class="display-1 text-center"> Club med </h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="media border p-3 flex-column flex-md-row">
+              <img src="images/images1.jpeg" alt="#" class="mr-3" style="width:250px;">
+              <div class="media-body align-self-center">
+                <h4>My Name <small><i>Posted on May 20, 2018</i></small></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ipsum aliquam metus facilisis scelerisque. Quisque vitae condimentum nulla. Vestibulum lobortis ullamcorper augue id consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus at aliquet dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue augue, eget lobortis quam auctor at.</p>
+              </div>
             </div>
         </div>
-        <div class="media">
-            <div class="media-body">
-                <h5>Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+    <div class="row">
+		<div class="col-12">
+            <div class="media border p-3 flex-column flex-md-row">
+              <div class="media-body align-self-center">
+                <h4>My Name <small><i>Posted on May 20, 2018</i></small></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ipsum aliquam metus facilisis scelerisque. Quisque vitae condimentum nulla. Vestibulum lobortis ullamcorper augue id consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus at aliquet dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue augue, eget lobortis quam auctor at.</p>
+              </div>
+              <img src="images/images1.jpeg" alt="#" class="mr-3" style="width:250px;">
             </div>
-            <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
-
-        </div>
-        <div class="media">
-            <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
-            <div class="media-body">
-                <h5>Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-        </div>
-        <div class="media">
-            <div class="media-body">
-                <h5>Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-            <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
-
-        </div>
+		</div>
     </div>
 
 </main >
-
-
-<!------commentaire---------->
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!--
-Author : Maniruzzaman Akash
-Email  : manirujjamanakash@gmail.com
--->
 
 <!--To Work with icons-->
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -126,5 +93,3 @@ Email  : manirujjamanakash@gmail.com
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
-
