@@ -29,37 +29,32 @@ include "config/autoload_class.php";
                             alt=""
                     />
                     <div class="to-card_body card-body">
-                        <h4 class="card-title to-card_body-title">west africa
+                        <h4 class="card-title to-card_body-title text-center">west africa
                                                                   tour</h4 >
-                        <div class="to-card_body-content ">
-                    <span class="badge badge-warning to-card_body-content_time">10
+                        <div class="to-card_body-content my-4">
+                    <span class="badge badge-warning to-card_body-content_time">5-10
                                                                             jours</span >
 
                             <span class="to-card_body-content_price">à partir de
                                                              1000€</span >
-                            <p class="card-text to-card_body-description">
+                        </div >
+                        <p class="card-text to-card_body-description text-center">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing
                                 elit.
                                 Labore, quas.
                             </p >
-                        </div >
 
                         <div class="to-card to-card_footer">
 
-                            <div class="to-card to-card_footer-rating">
+                            <div class="to-card to-card_footer-btn">
                                 <a
                                         class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                                        href="tour_operator.php"
+                                        href="choose_tour.php"
                                 >Read
                                  More</a >
                             </div >
                             <div class="to-card to-card_footer-rating">
-
-                                <i class="fa fa-star text-warning"></i >
-                                <i class="fa fa-star text-warning"></i >
-                                <i class="fa fa-star text-warning"></i >
-                                <i class="fa fa-star text-warning"></i >
-                                <i class="fa fa-star text-secondary"></i >
+                                <!-- <i class="fa fa-star text-warning"></i > -->
                             </div >
                         </div >
                     </div >
