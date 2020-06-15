@@ -21,7 +21,7 @@ include "config/autoload_class.php";
                 placeholder="Search for your destinations"
         >
         <div class="card-columns">
-            <?php for ($i = 0; $i < 12; $i++): ?>
+            <?php for ($i = 0; $i < 11; $i++): ?>
                 <div class="card" id="myDIV">
                     <img
                             class="card-img-top img-fluid"
