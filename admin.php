@@ -73,59 +73,21 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
 
 </header >
 <main class="destination-main">
-    <h1 class="text-center">admin page</h1 >
-    <hr >
-    <div class="container-fluid">
-        <div class="row justify-content-between">
-            <div class="col-10">
-                <h3 class="text-center"> BASE DE DONNEES</h3 >
-                <div class="btn_block">
-                    <div class="row ">
-                        <div class="col-md-12 d-flex justify-content-center mb-3">
-                            <a
-                                    class="btn
-                                    btn-primary mr-4" href="add_destination.php"
-                            > <span ><i
-                                            class="fas fa-city mr-2
-"
-                                    ></i ></span >Add Tour Operator </a >
-                            <a
-                                    class="btn
-                                    btn-info mr-4" href="add_tour-operator.php"
-                            > <span
-
-                                ><i class="fas fa-plane-departure mr-2"></i ></span
-                                >Add
-                                 Destination
-                            </a >
-                            <a
-                                    class="btn
-                                    btn-success mr-4" href="see_reviews.php"
-                            > <span
-
-                                ><i class="fas fa-comments mr-2"></i ></span
-                                >See reviews
-                            </a >
-
-
-                        </div >
-                    </div >
-                </div >
+    <h1 class="text-center my-4">BASE DE DONNEES</h1 >
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-
                             <table class="table table-bordered">
                                 <thead >
                                 <tr >
                                     <th >id</th >
                                     <th >Tour Operator</th >
+                                    <th >Grade</th >
                                     <th >Price (€)</th >
                                     <th >Destination</th >
                                     <th >Link</th >
-                                    <th >Premium</th >
 
-                                    <th >Link</th >
+                                    <th >Premium </th >
 
                                 </tr >
                                 </thead >

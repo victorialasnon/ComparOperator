@@ -69,30 +69,19 @@ $requete3 = $db -> query( 'select destinations.id,tour_operators.name,destinatio
 
 </header >
 <main class="destination-main">
-    <h1 class="text-center">admin page</h1 >
-    <hr >
-    <div class="container-fluid">
-        <div class="row justify-content-between">
-            <div class="col-10">
-                <h3 class="text-center">DESTINATIONS BASE DE DONNEES</h3 >
-                <div class="btn_block">
-                    <div class="row ">
-                        <div class="col-md-12 d-flex justify-content-center mb-3">
-
-                            <a
-                                    class="btn
+    <h1 class="text-center display-4 mt-4">DESTINATIONS DATABASE</h1 >
+    <div class="btn-blo d-flex justify-content-center mb-5">
+        <a
+                class="btn
                                     btn-info mr-4" href="add_tour-operator.php"
-                            > <span
+        > <span
 
-                                ><i class="fas fa-plane-departure mr-2"></i ></span
-                                >Add
-                                 Destination
-                            </a >
+            ><i class="fas fa-plane-departure mr-2"></i ></span
+            >Add
+             Destination
+        </a >
+    </div >
 
-
-                        </div >
-                    </div >
-                </div >
                 <div class="container">
                     <table class="table table-bordered">
                         <thead >

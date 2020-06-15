@@ -14,84 +14,46 @@ include "config/autoload_class.php";
 
 </header >
 <main class="destination-main">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 m-auto">
 
-                <!-- SLIDER WITH CAPTIONS -->
 
-                <div id="slider4" class="carousel slide mb-5" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li
-                                class="active" data-target="#slider3"
-                                data-slide-to="0"
-                        ></li >
-                        <li data-target="#slider4" data-slide-to="1"></li >
-                        <li data-target="#slider4" data-slide-to="2"></li >
-                    </ol >
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img
-                                    class="d-block img-fluid"
-                                    src="https://source.unsplash.com/wgq4eit198Q/700x400"
-                                    alt="First Slide"
-                            />
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3 >Slide One</h3 >
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                    Alias, dolore!
-                                </p >
-                            </div >
-                        </div >
-                        <div class="carousel-item">
-                            <img
-                                    class="d-block img-fluid"
-                                    src="https://source.unsplash.com/WLUHO9A_xik/700x400"
-                                    alt="Second Slide"
-                            />
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3 >Slide Two</h3 >
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                    Alias, dolore!
-                                </p >
-                            </div >
-                        </div >
-                        <div class="carousel-item">
-                            <img
-                                    class="d-block img-fluid"
-                                    src="https://source.unsplash.com/4yta6mU66dE/700x400"
-                                    alt="Third Slide"
-                            />
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3 >Slide Three</h3 >
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                    Alias, dolore!
-                                </p >
-                            </div >
-                        </div >
-                    </div >
-                    <!-- controls -->
-                    <a
-                            href="#slider4" class="carousel-control-prev"
-                            data-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon"></span >
-                    </a >
-                    <a
-                            href="#slider4" class="carousel-control-next"
-                            data-slide="next"
-                    >
-                        <span class="carousel-control-next-icon"></span >
-                    </a >
-                </div >
-            </div >
-        </div >
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-3">choose your tour</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="media border p-3 flex-column flex-md-row">
+              <img src="images/images1.jpeg" alt="#" class="mr-3" style="width:250px;">
+              <div class="media-body align-self-center">
+                <h4>My Name <small><i>Posted on May 20, 2018</i></small></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ipsum aliquam metus facilisis scelerisque. Quisque vitae condimentum nulla. Vestibulum lobortis ullamcorper augue id consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus at aliquet dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue augue, eget lobortis quam auctor at.</p>
+                <a class="btn btn-warning w-50" href="tour_operator.php">Book</a>
+            </div>
+            </div>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-12">
+            <div class="media border p-3 flex-column flex-md-row">
+              <div class="media-body align-self-center">
+                <h4>My Name <small><i>Posted on May 20, 2018</i></small></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel ipsum aliquam metus facilisis scelerisque. Quisque vitae condimentum nulla. Vestibulum lobortis ullamcorper augue id consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus at aliquet dui. Mauris dapibus lectus id laoreet iaculis. Duis auctor augue augue, eget lobortis quam auctor at.</p>
+                <a class="btn btn-warning w-50" href="tour_operator.php">Book</a>
+              </div>
+              <img src="images/images1.jpeg" alt="#" class="mr-3" style="width:250px;">
+            </div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+
+
     </div >
     <div class="container">
         <div class="media">
