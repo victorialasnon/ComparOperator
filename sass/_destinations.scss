@@ -1,0 +1,13 @@
+.to-card_body{
+    &-content {
+        display : flex;
+        justify-content: space-between;
+    }
+}
+
+.to-card_footer{
+    
+        display : flex;
+        justify-content: center;
+    
+}

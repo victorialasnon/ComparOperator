@@ -85,4 +85,18 @@ html body .footer-container .footer-nav_list-item_link:hover {
   }
 }
 
+.to-card_body-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.to-card_footer {
+  display: flex;
+  justify-content: center;
+}
+
+.card-inner {
+  margin-left: 4rem;
+}
+
 /*# sourceMappingURL=style.css.map */
