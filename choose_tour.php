@@ -33,7 +33,7 @@ include "config/autoload_class.php";
                         <div class="carousel-item active">
                             <img
                                     class="d-block img-fluid"
-                                    src="https://source.unsplash.com/wgq4eit198Q/700x400"
+                                    src="images/canada/canadaresize.jpeg"
                                     alt="First Slide"
                             />
                             <div class="carousel-caption d-none d-md-block">
