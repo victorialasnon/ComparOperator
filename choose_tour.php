@@ -15,83 +15,50 @@ include "config/autoload_class.php";
 </header >
 <main class="destination-main">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-8 m-auto">
 
-                <!-- SLIDER WITH CAPTIONS -->
 
-                <div id="slider4" class="carousel slide mb-5" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li
-                                class="active" data-target="#slider3"
-                                data-slide-to="0"
-                        ></li >
-                        <li data-target="#slider4" data-slide-to="1"></li >
-                        <li data-target="#slider4" data-slide-to="2"></li >
-                    </ol >
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img
-                                    class="d-block img-fluid"
-                                    src="images/canada/canadaresize.jpeg"
-                                    alt="First Slide"
-                            />
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3 >Slide One</h3 >
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                    Alias, dolore!
-                                </p >
-                            </div >
-                        </div >
-                        <div class="carousel-item">
-                            <img
-                                    class="d-block img-fluid"
-                                    src="https://source.unsplash.com/WLUHO9A_xik/700x400"
-                                    alt="Second Slide"
-                            />
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3 >Slide Two</h3 >
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                    Alias, dolore!
-                                </p >
-                            </div >
-                        </div >
-                        <div class="carousel-item">
-                            <img
-                                    class="d-block img-fluid"
-                                    src="https://source.unsplash.com/4yta6mU66dE/700x400"
-                                    alt="Third Slide"
-                            />
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3 >Slide Three</h3 >
-                                <p >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
-                                    Alias, dolore!
-                                </p >
-                            </div >
-                        </div >
-                    </div >
-                    <!-- controls -->
-                    <a
-                            href="#slider4" class="carousel-control-prev"
-                            data-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon"></span >
-                    </a >
-                    <a
-                            href="#slider4" class="carousel-control-next"
-                            data-slide="next"
-                    >
-                        <span class="carousel-control-next-icon"></span >
-                    </a >
-                </div >
-            </div >
-        </div >
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row pt-1 pb-1">
+        <div class="col-lg-12">
+            <h4 class="text-center display-1">Paris</h4>
+           <p class="lead text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae porro nihil 
+               laudantium illo nostrum! Dolore aliquam repellat hic, harum vel debitis ipsam 
+               maiores dignissimos at odit ipsum numquam delectus ratione. </p>
+        </div>
+    </div>
+</div>
+<section class="mt-4">
+    <!-- resize les images -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/images1.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/images2.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/images3.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <!--https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg-->
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+
+
+
     </div >
     <div class="container">
         <div class="media">

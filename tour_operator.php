@@ -15,18 +15,14 @@ include "config/autoload_class.php";
 </header >
 <main class="destination-main">
     <div class="container">
-        <div class="media">
-            <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
-            <div class="media-body">
+        <div class="city-block">
+        <div class="city-block_img"><img  src="https://source.unsplash.com/random/500x500" /></div>
+            <div class="city-block_content">
                 <h5>Media heading</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
                 scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
                 vulputate fringilla. Donec lacinia congue felis in faucibus.
-                <a class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                   href="choose_tour.php"
-                >Read
-                More</a >
             </div>
         </div>
         <div class="media">
@@ -36,10 +32,6 @@ include "config/autoload_class.php";
                 scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
                 vulputate fringilla. Donec lacinia congue felis in faucibus.
-                <a class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                   href="choose_tour.php"
-                >Read
-                More</a >
             </div>
             <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
 
@@ -52,10 +44,6 @@ include "config/autoload_class.php";
                 scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
                 vulputate fringilla. Donec lacinia congue felis in faucibus.
-                <a class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                   href="choose_tour.php"
-                >Read
-                More</a >
             </div>
         </div>
         <div class="media">
@@ -65,10 +53,6 @@ include "config/autoload_class.php";
                 scelerisque ante sollicitudin. Cras purus odio, vestibulum in
                 vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
                 vulputate fringilla. Donec lacinia congue felis in faucibus.
-                <a class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                   href="choose_tour.php"
-                >Read
-                More</a >
             </div>
             <img class="mr-3 mt-3" src="https://source.unsplash.com/random/90x90" />
 
