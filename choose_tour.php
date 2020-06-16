@@ -15,10 +15,11 @@ include "includes/class-autoload.inc.php";
 <main class="destination-main">
     <?php
     //requete get all data from relation table
-    $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.price 
+    $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.price,destinations.location 
                                             from tour_operators 
                                                 inner join destinations  
-                                                     on tour_operators.id = destinations.id_tour_operator ' );
+                                                     on tour_operators.id = destinations.id_tour_operator
+                                                        group by destinations.location' );
     ?>
 
 
