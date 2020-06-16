@@ -1,17 +1,11 @@
 <?php
-/*include "config/db.php";*/
-include "config/autoload_class.php";
+/*include "includes/db.php";*/
+include "./includes/class-autoload.inc.php";
+//database object
+$host = new Dbh();
+echo $host -> connect();
 ?>
-<?php
 
-//requete get all data from relation table
-//$requete = $db -> query( 'select tour_operators.id,tour_operators.name,tour_operators.grade,tour_operators.link,tour_operators.is_premium,destinations.location,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
-
-//requete to get the tour operator in select form
-/*$requete5 = $db -> query( 'select * from tour_operators ' );
-*/
-
-?>
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
@@ -114,8 +108,10 @@ include "config/autoload_class.php";
                         </div >
                         <div class="col-3">
 
-                            <select class="form-control" id="is_premium"
-                                    name="is_premium">
+                            <select
+                                    class="form-control" id="is_premium"
+                                    name="is_premium"
+                            >
                                 <option >Premium</option >
                                 <option value="">0</option >
                                 <option value="">1</option >

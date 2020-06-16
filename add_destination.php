@@ -1,6 +1,6 @@
 <?php
-include "config/db.php";
-include "config/autoload_class.php";
+include "includes/db.php";
+include "includes/class-autoload.inc.php";
 ?>
 <?php
 $requete3 = $db -> query( 'select destinations.id,tour_operators.name,destinations.location,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );

@@ -1,6 +1,6 @@
 <?php
-include "config/db.php";
-include "config/autoload_class.php";
+include "includes/db.php";
+include "includes/class-autoload.inc.php";
 ?>
 <?php
 $requete4 = $db -> query( 'select reviews.id,reviews.message,reviews.author,tour_operators.name from reviews inner join tour_operators  on tour_operators.id = reviews.id_tour_operator ' );
@@ -70,46 +70,45 @@ $requete4 = $db -> query( 'select reviews.id,reviews.message,reviews.author,tour
 </header >
 <main class="destination-main">
     <h1 class="text-center display-4 my-4">REVIEWS DATABASE</h1 >
-    <div class="container-fluid">
-        <?php while ( $donnees = $requete4 -> fetch() ) : ?>
-            <div class="container mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-3">
-                                <h1 class="text-capitalize">  <?= $donnees[ 'name' ]; ?></h1 >
 
-                            </div >
-                            <div class="col-md-3">
-
-                                <p class="text-secondary text-center"> posted by:
-                                    <span class="text-dark lead"><?= $donnees[ 'author' ];
-                                    ?></p ></span>
-                            </div >
-                            <div class="col-md-3">
-                                <div class="clearfix"></div >
-
-                                <p >comments: <span class="text-dark lead"> <?=
-                                        $donnees[ 'message' ]; ?></span ></p >
-                                <p >
-
-                            </div >
-                            <div class="col-md-3">
-                                <a
-                                        href="#" class="float-right btn text-white
-                                btn-danger"
-                                >
-                                    <i class="fa fa-trash"></i > Delete</a >
-                                </p>
-                            </div >
+    <div class="container">
+        <div class="row">
+            <?php while ( $donnees = $requete4 -> fetch() ) : ?>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h3 card-title text-capitalize text-primary">
+                                <?= $donnees[ 'name' ]; ?>
+                            </h5 >
+                            <hr >
+                            <h5 class="card-title text-capitalize text-primary
+                            text-">
+                                <u>Review</u> :
+                            </h5 >
+                            <p class="card-text ">
+                                <?= $donnees[ 'message' ];
+                                ?>
+                            </p >
+                            <h6 class="card-subtitle text-muted ">
+                               Author: <span class="text-info h5"><?=
+                                    $donnees[ 'author' ];
+                                ?></span>
+                            </h6 >
+                            <button
+                                    class=" btn text-white
+                                btn-danger float-right "
+                            >
+                                <i class="fa fa-trash"></i > Delete
+                            </button >
                         </div >
                     </div >
 
                 </div >
-            </div >
-        <?php endwhile; ?>
+            <?php endwhile; ?>
+        </div >
     </div >
 </main >
+
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >

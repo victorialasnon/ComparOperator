@@ -1,6 +1,6 @@
 <?php
-include "config/db.php";
-include "config/autoload_class.php";
+include "includes/db.php";
+include "includes/class-autoload.inc.php";
 ?>
 <?php
 $requete2 = $db -> query( 'select * from tour_operators ' );
@@ -71,12 +71,99 @@ $requete2 = $db -> query( 'select * from tour_operators ' );
 <main class="destination-main">
     <h3 class="text-center display-4 mt-4"> TOUR OPERATOR DATABASE</h3 >
     <div class="btn-blo d-flex justify-content-center mb-5">
-        <a
-                class="btn btn-primary mr-4"
-                href="add_tour-operator.php"
-        > <span ><i
-                        class="fas fa-city mr-2"
-                ></i ></span >Add Tour Operator </a >
+        <!-- Button trigger modal -->
+        <button
+                type="button" class="btn btn-primary mr-4" data-toggle="modal"
+                data-target="#addTourModal"
+        >
+          <span ><i
+                      class="fas fa-city mr-2"
+              ></i ></span >Add Tour Operator
+        </button >
+
+        <!-- Modal -->
+        <div
+                class="modal fade" id="addTourModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Tour
+                                                                       Operator</h5 >
+                        <button
+                                type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span >
+                        </button >
+                    </div >
+                    <div class="modal-body">
+                        <form
+                                class="form-group" method="post"
+                                action="add_tour-operator.php"
+                        >
+                            <!-- TEXT FIELD GROUPS -->
+                            <div class="form-row  mb-3">
+
+                                <div class="col-8">
+                                    <input
+                                            class="form-control" type="text"
+                                            name="name" required
+                                            placeholder="Tour Operator name"
+                                    />
+                                </div >
+
+                                <div class="col-4">
+                                    <input
+                                            class="form-control" type="number"
+                                            name="grade"
+                                            placeholder="Grade" required
+                                    />
+
+                                </div >
+                            </div >
+                            <div class="form-row mb-3">
+                                <div class="col-9">
+                                    <input
+                                            class="form-control" type="text"
+                                            name="link"
+                                            placeholder="Link" required
+                                    />
+                                </div >
+                                <div class="col-3">
+
+                                    <select
+                                            class="form-control" id="is_premium"
+                                            type="number"
+                                            name="is_premium"
+                                    >
+                                        <option >Premium</option >
+                                        <option value="">0</option >
+                                        <option value="">1</option >
+                                    </select >
+                                </div >
+                            </div >
+
+
+                    <div class="modal-footer">
+                        <button
+                                type="button" class="btn btn-secondary"
+                                data-dismiss="modal"
+                        >Close
+                        </button >
+                        <button
+                                class="btn btn-primary" name="add-to"
+                                type="submit"
+                        >Add Tour Operator
+                        </button >
+                    </div >
+                        </form >
+                    </div >
+                </div >
+            </div >
+        </div >
+
     </div >
 
     <div class="container">
