@@ -1,5 +1,5 @@
 <?php
-include "includes/db.php";
+
 include "includes/class-autoload.inc.php";
 ?>
 <?php
@@ -74,7 +74,7 @@ $requete4 = $db -> query( 'select reviews.id,reviews.message,reviews.author,tour
     <div class="container">
         <div class="row">
             <?php while ( $donnees = $requete4 -> fetch() ) : ?>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="h3 card-title text-capitalize text-primary">

@@ -1,30 +1,81 @@
 <?php
 
-class Manager
+class Manager extends Dbh
 {
-// Instance de PDO
-private $db;
+    public function getAllOperator()
+    {
+        //putting sql request in variable
+        $getOperator = "SELECT * FROM tour_operators";
 
-//db method constructor
-public function __construct( PDO $db )
-{
-$this -> db = $db;
-}
+        //prepare the request
+        $getOperatorStatement = $this -> connect() -> prepare( $getOperator );
+        //execute the request
+        $getOperatorStatement -> execute();
+        while ( $getOperatorResult = $getOperatorStatement -> fetchAll() ) {
+            //return the request array
+            return $getOperatorResult;
+        }
+    }
 
-//cette methode prend en param un objet tout operator
-public function createTourOperator( TourOperator $tourOperator )
-{
-//requete to insert data in table
-$requete = $this -> db -> prepare( 'INSERT INTO tour_operators(name, grade,link,is_premium) VALUES (:name, :grade, :link, :is_premium)' );
-//bind value to data
-$requete -> bindValue( ':name' , $tourOperator -> getName() );
-$requete -> bindValue( ':grade' , $tourOperator -> getGrade() );
-$requete -> bindValue( ':link' , $tourOperator -> getLink() );
-$requete -> bindValue( ':is_premium' , $tourOperator -> getIsPremium() );
 
-//execute request
-$requete -> execute();
-}
+    public function createDestination()
+    {
 
+    }
+
+    public function updateOperatorToPremium()
+    {
+
+    }
+
+    public function createTourOperator( $name , $grade , $link ,
+                                        $is_premium )
+    {
+        $createTourOperator = " INSERT INTO tour_operators(name,grade,link,is_premium)
+                                VALUES (?,?,?,?)";
+        $createTourOperatorStatement = $this -> connect() -> prepare( $createTourOperator );
+        $createTourOperatorStatement -> execute( array( $name , $grade , $link ,
+            $is_premium ) );
+
+    }
+
+    public function startUpdateTourOperator( $id )
+    {
+        $startUpdateTourOperator = "SELECT * FROM tour_operators WHERE id = ?";
+        $startUpdateTourOperatorStatement = $this -> connect() -> prepare(
+            $startUpdateTourOperator );
+        $startUpdateTourOperatorStatement -> execute( array( $id ) );
+
+        return $startUpdateTourOperatorStatement -> fetch();
+    }
+
+    public function updateTourOperator($name,$grade,$link,$is_premium,$id)
+    {
+        $updateTourOperator= "UPDATE tour_operators SET tour_operators.name = ?, grade= ?,link = ?, is_premium= ? WHERE id= ?";
+        $updateTourOperatorStatement= $this->connect()->prepare($updateTourOperator);
+        $updateTourOperatorStatement->execute(array($name,$grade,$link,
+            $is_premium,$id));
+
+    }
+
+    public function getAllDestinations()
+    {
+
+    }
+
+    public function getOperatorByDestination()
+    {
+
+    }
+
+    public function createReview()
+    {
+
+    }
+
+    public function getReviewByOperatorId()
+    {
+
+    }
 
 }
