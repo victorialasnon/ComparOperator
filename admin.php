@@ -49,7 +49,7 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                     <li class="nav-item">
                         <a
                                 class="nav-link js-scroll-trigger"
-                                href="./add_tour-operator.php"
+                                href="./admin_tour-operator.php"
                         >Tours</a >
                     </li >
                     <li class="nav-item">
@@ -74,7 +74,7 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
 </header >
 <main class="destination-main">
     <h1 class="text-center my-4">BASE DE DONNEES</h1 >
-                <div class="container-fluid">
+        <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
                             <table class="table table-bordered">
@@ -123,8 +123,8 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                 <form class="form-group" method="get">
                     <!-- TEXT FIELD GROUPS -->
                     <div class="form-row  align-items-center mb-3">
-                        <div class="col  ">
-                            <select class="form-control" id="gender">
+                        <div class="col-8">
+                            <select class="form-control" id="tour-operator">
                                 <option >Select tour Operator ...</option >
 
                                 <?php while ( $donnees = $requete5 -> fetch() )
@@ -133,13 +133,12 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                                 <?php endwhile; ?>
                             </select >
                         </div >
-                        <div class=" form-check">
-                            <label class="form-check-label mr-5">
-                                <input
-                                        class="form-check-input mr-2"
-                                        type="checkbox"
-                                /> Premium
-                            </label >
+                        <div class="col-4">
+                            <select class="form-control" id="premium">
+                                <option >Premium</option >
+                                    <option value="">0</option >
+                                    <option value="">1</option >
+                            </select >
                         </div >
                     </div >
                     <div class="form-row mb-3">
@@ -207,10 +206,6 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                 </form >
             </div >
         </div >
-
-
-    </div >
-
 </main >
 
 <?php include "./partials/footer.php"; ?>

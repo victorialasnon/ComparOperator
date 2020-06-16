@@ -99,7 +99,7 @@ $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_o
                     <td ><?= $donnees[ 'is_premium' ] ?></td >
                     <td ><?= $donnees[ 'grade' ] ?></td >
                     <td ><?= $donnees[ 'price' ] ?></td> 
-                    <td class="d-flex justify-content-center"><a class="btn btn-warning w-50" href="tour_operator.php">Book</a></td >
+                    <td class="d-flex justify-content-center"><a class="btn btn-warning w-50" href="user/tour_operator.php">Book</a></td >
                 </tr >
                 <?php endwhile; ?>
                 </tbody >

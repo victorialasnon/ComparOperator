@@ -2,7 +2,7 @@
 
 class TourOperator
 {
-    //propriétés de la classe
+//propriétés de la classe
     private
         $id ,
         $name ,
@@ -10,25 +10,23 @@ class TourOperator
         $link ,
         $is_premium;
 
-    //methode constructor de la classe
+//methode constructor de la classe
     public function _construct( array $donnees )
     {
-        if (!empty($donnees)){
+        if ( !empty( $donnees ) ) {
 
-        $this -> hydrate ($donnees);
+            $this -> hydrate( $donnees );
         }
 
     }
 
-    // methode hydrate pour assigner les valeur a un objet créé
+// methode hydrate pour assigner les valeur a un objet créé
     public function hydrate( array $donnees )
     {
-        foreach ($donnees as $key => $value)
-        {
-            $method = 'set' . ucfirst ($key);
-            if (method_exists ($this , $method))
-            {
-                $this -> $method($value);
+        foreach ($donnees as $key => $value) {
+            $method = 'set' . ucfirst( $key );
+            if ( method_exists( $this , $method ) ) {
+                $this -> $method( $value );
             }
         }
     }
