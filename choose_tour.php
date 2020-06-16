@@ -119,5 +119,3 @@ $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_o
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
-
