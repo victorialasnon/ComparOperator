@@ -13,10 +13,14 @@ include "config/autoload_class.php";
 
 <?php
 //requete get all data from relation table
+
+$requete = $db -> query( 'select destinations.location,destinations.days,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
+
 $requete = $db -> query( 'select destinations.location,destinations.days,destinations.price, images.img_url 
                           from destinations 
                           inner join images  on destinations.id = images.id_destination
                           group by destinations.location' );
+
 ?>
 
 <div class="container-fluid bg-light p-5">

@@ -86,6 +86,8 @@ html {
 } */
 .card-inner {
   margin-left: 4rem; }
+<<<<<<< HEAD
+=======
 
 .city-block {
   display: flex;
@@ -212,5 +214,6 @@ a {
 .widget .btn-block {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px; }
+>>>>>>> master
 
 /*# sourceMappingURL=style.css.map */

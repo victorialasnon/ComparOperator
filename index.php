@@ -1,5 +1,8 @@
 
-
+<?php
+/*include "config/db.php";*/
+include "config/autoload_class.php";
+?>
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
