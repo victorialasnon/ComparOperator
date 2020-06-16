@@ -17,8 +17,13 @@ include "config/autoload_class.php";
 
 <?php
 //requete get all data from relation table
-$requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
+$requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.location,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
 ?>
+
+
+<?php while ( $donnees = $requete -> fetch() ) : ?>
+<h1 class="text-center"><?= $donnees[ 'location' ] ?></h4>
+<?php endwhile; ?>
 
 <div class="container">
 </div>
