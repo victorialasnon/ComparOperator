@@ -10,6 +10,12 @@ include "config/autoload_class.php";
     <?php include "partials/nav.php"; ?>
 
 </header >
+
+<?php
+//requete get all data from relation table
+$requete = $db -> query( 'select destinations.location,destinations.days,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
+?>
+
 <div class="container-fluid bg-light p-5">
 
 
@@ -56,8 +62,7 @@ include "config/autoload_class.php";
 
 
         <div class="card-columns">
-
-            <?php for ($i = 0; $i < 11; $i++): ?>
+        <?php while ( $donnees = $requete -> fetch() ) : ?>
                 <div class="card" id="myDIV">
                     <img
                             class="card-img-top img-fluid"
@@ -65,14 +70,11 @@ include "config/autoload_class.php";
                             alt=""
                     />
                     <div class="to-card_body card-body">
-                        <h4 class="card-title to-card_body-title text-center">west africa
-                                                                  tour</h4 >
+                        <h4 class="card-title to-card_body-title text-center"><?= $donnees[ 'location' ] ?></h4 >
                         <div class="to-card_body-content my-4">
-                    <span class="badge badge-warning to-card_body-content_time">5-10
-                                                                            jours</span >
+                    <span class="badge badge-warning to-card_body-content_time"><?= $donnees[ 'days' ] ?> jours</span >
 
-                            <span class="to-card_body-content_price">à partir de
-                                                             1000€</span >
+                            <span class="badge badge-primary to-card_body-content_price"><?= $donnees[ 'price' ] ?> €</span >
                         </div >
                         <p class="card-text to-card_body-description text-center">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -95,7 +97,8 @@ include "config/autoload_class.php";
                         </div >
                     </div >
                 </div >
-            <?php endfor; ?>
+        <?php endwhile; ?>
+            
 
     </main >
 </div >

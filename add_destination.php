@@ -121,7 +121,6 @@ $requete3 = $db -> query( 'select destinations.id,tour_operators.name,destinatio
                                 </td >
                             </tr >
                         <?php endwhile; ?>
-                        </tr >
                         </tbody >
                     </table >
                 </div >
