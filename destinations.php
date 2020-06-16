@@ -13,7 +13,14 @@ include "config/autoload_class.php";
 
 <?php
 //requete get all data from relation table
+
 $requete = $db -> query( 'select destinations.location,destinations.days,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
+
+$requete = $db -> query( 'select destinations.location,destinations.days,destinations.price, images.img_url 
+                          from destinations 
+                          inner join images  on destinations.id = images.id_destination
+                          group by destinations.location' );
+
 ?>
 
 <div class="container-fluid bg-light p-5">
@@ -26,6 +33,7 @@ $requete = $db -> query( 'select destinations.location,destinations.days,destina
                 class="form-control mb-5" id="anythingSearch" type="text"
                 placeholder="Search for your destinations"
         >
+
 
 <!-- <section class="search-sec">
     <div class="container">
@@ -66,7 +74,7 @@ $requete = $db -> query( 'select destinations.location,destinations.days,destina
                 <div class="card" id="myDIV">
                     <img
                             class="card-img-top img-fluid"
-                            src="images/canada/canada1.jpeg"
+                            src="<?= $donnees[ 'img_url' ] ?>"
                             alt=""
                     />
                     <div class="to-card_body card-body">
