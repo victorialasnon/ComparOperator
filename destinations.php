@@ -21,7 +21,6 @@ include "config/autoload_class.php";
                 placeholder="Search for your destinations"
         >
 
-
 <!-- <section class="search-sec">
     <div class="container">
         <form action="#" method="post" novalidate="novalidate">
@@ -57,6 +56,7 @@ include "config/autoload_class.php";
 
 
         <div class="card-columns">
+
             <?php for ($i = 0; $i < 11; $i++): ?>
                 <div class="card" id="myDIV">
                     <img

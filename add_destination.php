@@ -3,11 +3,7 @@ include "config/db.php";
 include "config/autoload_class.php";
 ?>
 <?php
-//requete get all data from relation table
-$requete = $db -> query( 'select tour_operators.id,tour_operators.name,tour_operators.grade,tour_operators.link,tour_operators.is_premium,destinations.location,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
-
-//requete to get the tour operator in select form
-$requete5 = $db -> query( 'select * from tour_operators ' );
+$requete3 = $db -> query( 'select destinations.id,tour_operators.name,destinations.location,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
 
 ?>
 <!doctype html>
@@ -40,9 +36,9 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                     id="navbarResponsive"
             >
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a
-                                class="nav-link js-scroll-trigger "
+                                class="nav-link js-scroll-trigger"
                                 href="./admin.php"
                         >HOME</a >
                     </li >
@@ -52,7 +48,7 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                                 href="./add_tour-operator.php"
                         >Tours</a >
                     </li >
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a
                                 class="nav-link js-scroll-trigger"
                                 href="add_destination.php"
@@ -73,48 +69,60 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
 
 </header >
 <main class="destination-main">
-    <h1 class="text-center my-4">BASE DE DONNEES</h1 >
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <table class="table table-bordered">
-                                <thead >
-                                <tr >
-                                    <th >id</th >
-                                    <th >Tour Operator</th >
-                                    <th >Grade</th >
-                                    <th >Price (€)</th >
-                                    <th >Destination</th >
-                                    <th >Link</th >
+    <h1 class="text-center display-4 mt-4">DESTINATIONS DATABASE</h1 >
+    <div class="btn-blo d-flex justify-content-center mb-5">
+        <a
+                class="btn
+                                    btn-info mr-4" href="add_tour-operator.php"
+        > <span
 
-                                    <th >Premium </th >
+            ><i class="fas fa-plane-departure mr-2"></i ></span
+            >Add
+             Destination
+        </a >
+    </div >
 
-                                </tr >
-                                </thead >
-                                <tbody >
-                                <?php  ?>
-                                <?php while ( $donnees = $requete -> fetch() ) : ?>
-                                    <tr >
-                                        <th scope="row"><?= $donnees[ 'id' ] ?></th >
-                                        <td ><?= $donnees[ 'name' ] ?></td >
-                                        <td ><?= $donnees[ 'grade' ] ?></td >
-                                        <td ><?= $donnees[ 'price' ] ?></td >
-                                        <td ><?= $donnees[ 'location' ] ?></td >
-                                        <td ><?= $donnees[ 'link' ] ?></td >
-                                        <?php if ( $donnees[ 'is_premium' ] === "1" ) : ?>
-                                            <td >
-                                                Oui
-                                            </td >
-                                        <?php else : ?>
-                                            <td >
-                                                Non
-                                            </td >
-                                        <?php endif; ?>
-                                    </tr >
-                                <?php endwhile; ?>
-                                </tbody >
-                        </div >
-                    </div >
+                <div class="container">
+                    <table class="table table-bordered">
+                        <thead >
+                        <tr >
+                            <th >id</th >
+                            <th >City</th >
+                            <th >Price (€)</th >
+                            <th >Tour Operator</th >
+                            <th >Actions</th >
+
+                        </tr >
+                        </thead >
+                        <tbody >
+                        <?php while ( $donnees = $requete3 -> fetch() ) : ?>
+                            <tr >
+                                <th scope="row"><?= $donnees[ 'id' ] ?></th >
+                                <td ><?= $donnees[ 'location' ] ?></td >
+                                <td ><?= $donnees[ 'price' ] ?></td >
+                                <td ><?= $donnees[ 'name' ] ?></td >
+
+                                <td class="d-flex justify-content-between">
+                                    <a
+                                            class="btn
+                                    btn-info " href="voir_tour-operator.php"
+                                    > <span ><i class="fas fa-eye mr-2"></i></span >See </a >
+                                    <a
+                                            class="btn
+                                    btn-primary " href="update_tour-operator.php"
+                                    > <span ><i class="fas fa-edit mr-2"></i></span >Update
+                                    </a >
+                                    <a
+                                            class="btn
+                                    btn-danger " href="delete_tour-operator.php"
+                                    > <span ><i class="fas fa-trash-alt mr-2"></i></span
+                                        >Delete
+                                    </a >
+                                </td >
+                            </tr >
+                        <?php endwhile; ?>
+                        </tr >
+                        </tbody >
                     </table >
                 </div >
             </div >
@@ -124,14 +132,10 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                     <!-- TEXT FIELD GROUPS -->
                     <div class="form-row  align-items-center mb-3">
                         <div class="col  ">
-                            <select class="form-control" id="gender">
-                                <option >Select tour Operator ...</option >
-
-                                <?php while ( $donnees = $requete5 -> fetch() )
-                                    : ?>
-                                <option value="<?= $donnees[ 'name' ] ?>"><?= $donnees[ 'name' ] ?></option >
-                                <?php endwhile; ?>
-                            </select >
+                            <input
+                                    class="form-control" type="text"
+                                    placeholder="Tour Operator"
+                            />
                         </div >
                         <div class=" form-check">
                             <label class="form-check-label mr-5">
@@ -152,16 +156,19 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                         <div class="col">
                             <input
                                     class="form-control" type="text"
-                                    placeholder="Price (€)"
+                                    placeholder="Price"
                             />
                         </div >
                     </div >
                     <div class="form-row mb-3">
                         <div class="col ">
-                            <input
-                                    class="form-control" type="text"
-                                    placeholder="City"
-                            />
+                            <select class="form-control" id="gender">
+                                <option >All Cities</option >
+                                <option >Paris</option >
+                                <option >Rio</option >
+                                <option >Rome</option >
+                                <option >Cape Coast</option >
+                            </select >
                         </div >
                         <div class="col">
                             <input
@@ -210,7 +217,21 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
 
 
     </div >
+    <?php
+    $requete = $db -> query( 'select * from tour_operators' );
 
+
+    while ( $donnees = $requete -> fetch() ) {
+        echo $donnees[ 'name' ];
+        echo "</br>";
+        echo $donnees[ 'grade' ];
+        echo "</br>";
+
+        echo $donnees[ 'link' ];
+        echo "</br>";
+
+    }
+    ?>
 </main >
 
 <?php include "./partials/footer.php"; ?>
