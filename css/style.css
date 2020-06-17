@@ -37,7 +37,7 @@ html {
    background-repeat: no-repeat;
    background-position: center center;*/
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center; }
   .index-main .main-container_title {
     font-weight: bold; }

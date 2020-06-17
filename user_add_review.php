@@ -1,6 +1,4 @@
 <?php
-
-include "includes/db.php";
 include "includes/class-autoload.inc.php";
 ?>
 
