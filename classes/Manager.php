@@ -76,7 +76,7 @@ class Manager extends Dbh
 
     }
 
-    public function createReview()
+    public function userCreateReview()
     {
 
     }
