@@ -4,68 +4,10 @@ include "includes/class-autoload.inc.php";
 //objet tourOperator from Manager class
 $tourOperators = new Manager();
 ?>
-
-
 <!doctype html>
 <?php include "partials/head.php"; ?>
 <body >
-<header >
-    <nav
-            class="navbar navbar-expand-lg navbar-dark bg-dark "
-            id="mainNav"
-    >
-        <div class="container">
-            <a
-                    class="navbar-brand js-scroll-trigger"
-                    href="index.php"
-            >Welcome Admin</a >
-            <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span >
-            </button >
-            <div
-                    class="collapse navbar-collapse"
-                    id="navbarResponsive"
-            >
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./admin.php"
-                        >HOME</a >
-                    </li >
-                    <li class="nav-item active">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./add_tour-operator.php"
-                        >Tours</a >
-                    </li >
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="add_tour-operator.php"
-                        >Destinations</a >
-                    </li >
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./see_reviews.php"
-                        >See Reviews</a >
-                    </li >
-
-                </ul >
-            </div >
-        </div >
-    </nav >
-
-</header >
+<?php include "partials/admin_nav.php";  ?>
 <main class="destination-main">
     <div class="container">
         <div class="jumbotron-fluid mt-4">
@@ -107,7 +49,7 @@ $tourOperators = new Manager();
                                 <div class="modal-body">
                                     <form
                                             class="form-group" method="post"
-                                            action="add_tour-operator.php"
+                                            action="admin_add_tour-operator.php"
                                     >
                                         <!-- TEXT FIELD GROUPS -->
                                         <div class="form-row  mb-3">
@@ -216,20 +158,20 @@ $tourOperators = new Manager();
                     $tourOperator): ?>
                     <tr >
                         <th ><?= $tourOperator[ 'id' ] ?></th >
-                        <td ><?= $tourOperator[ 'name' ] ?></td >
+                        <td width="250px"><?= $tourOperator[ 'name' ] ?></td >
                         <td ><?= $tourOperator[ 'grade' ] ?></td >
-                        <td width="450px"><?= $tourOperator[ 'link' ] ?></td >
+                        <td ><?= $tourOperator[ 'link' ] ?></td >
                         <td ><?= $tourOperator[ 'is_premium' ] ?></td >
                         <td class="text-center">
                             <a
-                                    href="update_tour-operator.php?id=<?= $tourOperator[ 'id' ] ?>"
+                                    href="admin_update_tour-operator.php?id=<?= $tourOperator[ 'id' ] ?>"
                                     class="btn
                                     btn-primary mr-2"
                                     style="width: 80px;"
                             >Update
                             </a >
                             <a
-                                    href="admin_tour-operator.php?id=<?= $tourOperator[ 'id' ] ?>"
+                                    href="admin_getAll_tour-operator.php?id=<?= $tourOperator[ 'id' ] ?>"
                                     class="btn
                                     btn-danger"
                                     style="width: 80px;"
