@@ -86,12 +86,21 @@ html {
 } */
 .card-inner {
   margin-left: 4rem; }
-<<<<<<< HEAD
-=======
 
 .city-block {
   display: flex;
   justify-content: space-between; }
+
+.custab {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5% 0;
+  box-shadow: 3px 3px 2px #ccc;
+  transition: 0.5s; }
+
+.custab:hover {
+  box-shadow: 3px 3px 0px transparent;
+  transition: 0.5s; }
 
 /*search box css start here*/
 .search-sec {
@@ -181,39 +190,5 @@ a {
 @media only screen and (min-width: 992px) {
   #property-listings .property-listing img {
     max-width: 180px; } }
-.widget .panel-body {
-  padding: 0px; }
-
-.widget .list-group {
-  margin-bottom: 0; }
-
-.widget .panel-title {
-  display: inline; }
-
-.widget .label-info {
-  float: right; }
-
-.widget li.list-group-item {
-  border-radius: 0;
-  border: 0;
-  border-top: 1px solid #ddd; }
-
-.widget li.list-group-item:hover {
-  background-color: rgba(86, 61, 124, 0.1); }
-
-.widget .mic-info {
-  color: #666666;
-  font-size: 11px; }
-
-.widget .action {
-  margin-top: 5px; }
-
-.widget .comment-text {
-  font-size: 12px; }
-
-.widget .btn-block {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px; }
->>>>>>> master
 
 /*# sourceMappingURL=style.css.map */

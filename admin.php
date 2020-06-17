@@ -1,6 +1,6 @@
 <?php
-include "config/db.php";
-include "config/autoload_class.php";
+include "includes/db.php";
+include "includes/class-autoload.inc.php";
 ?>
 <?php
 //requete get all data from relation table
