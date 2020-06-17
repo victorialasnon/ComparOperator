@@ -21,7 +21,7 @@
                 </li >
                 <li class = "nav-item" >
                     <a class = "nav-link js-scroll-trigger"
-                       href = "./user_destinations.php" >DESTINATIONS</a >
+                       href = "./user_getAll-destinations.php" >DESTINATIONS</a >
                 </li >
                 <li class = "nav-item" >
                     <a class = "nav-link js-scroll-trigger"

@@ -1,6 +1,5 @@
 <?php
 
-include "includes/db.php";
 include "includes/class-autoload.inc.php";
 ?>
 <!doctype html>
@@ -11,21 +10,8 @@ include "includes/class-autoload.inc.php";
 
 </header >
 <main class="destination-main">
-<<<<<<< HEAD:user_choose_tour.php
-=======
-    <?php
-    //requete get all data from relation table
-    $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.price,destinations.location 
-                                            from tour_operators 
-                                                inner join destinations  
-                                                     on tour_operators.id = destinations.id_tour_operator
-                                                        group by destinations.location' );
-    ?>
+<h1 class="display-2 text-center my-4">Roanne</h1>
 
-
->>>>>>> 28108150b71618578b491178b60459bc73434ae3:choose_tour.php
-    <div class="container">
-    </div >
     <section >
         <div
                 id="carouselExampleFade" class="carousel slide carousel-fade"
@@ -71,7 +57,8 @@ include "includes/class-autoload.inc.php";
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="mb-3">choose your tour</h3 >
+                <h3 class=" display-4 text-center my-3">Choose Your Tour
+                                                       Operator</h3 >
             </div >
         </div >
         <div class="row">
@@ -139,11 +126,11 @@ include "includes/class-autoload.inc.php";
                         <tr >
                             <td >club Med</td >
                             <td >Non</td >
-                            <td ><4</td >
+                            <td >4</td >
                             <td >1232</td >
                             <td class="d-flex justify-content-center"><a
                                         class="btn btn-warning w-50"
-                                        href="user/tour_operator.php"
+                                        href="user_tour_operator.php"
                                 >Book</a ></td >
                         </tr >
                     </tbody >
