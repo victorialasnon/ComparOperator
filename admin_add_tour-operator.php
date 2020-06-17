@@ -13,7 +13,7 @@ if ( isset( $_POST[ 'add-to' ] ) ) {
 
     $tourOperators -> createTourOperator( $name , $grade , $link ,
         $is_premium );
-    header( "Location: admin_tour-operator.php" );
+    header( "Location: admin_getAll_tour-operator.php" );
 
 } else if ( isset( $_POST[ 'update-to' ] ) ) {
     $id = $_GET[ 'id' ];
@@ -23,7 +23,7 @@ if ( isset( $_POST[ 'add-to' ] ) ) {
     $is_premium = $_POST[ 'is_premium' ];
 
     $tourOperators -> updateTourOperator( $name , $grade , $link , $is_premium , $id );
-    header( "Location: admin_tour-operator.php" );
+    header( "Location: admin_getAll_tour-operator.php" );
 
 }
 

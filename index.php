@@ -4,12 +4,10 @@
 include "includes/class-autoload.inc.php";
 ?>
 <!doctype html>
-
 <?php include "partials/head.php"; ?>
 <body >
 <header >
     <?php include "partials/nav.php"; ?>
-
 </header >
 <main class="index-main">
     <div class=" jumbotron-fluid text-center text-white main-container">
@@ -19,10 +17,9 @@ include "includes/class-autoload.inc.php";
                                             consectetur adipisicing elit. Nostrum
                                             necessitatibus perspiciatis cum
                                           lorem100 </p >
-
         <a
                 class="btn btn-outline-warning text-white btn-lg main-content_btn mt-4"
-                href="destinations.php"
+                href="user_destinations.php"
                 role="button"
         >
             voir nos

@@ -87,7 +87,7 @@ include "includes/class-autoload.inc.php";
 	    </div>
     </div>
     <div class="reviews-btn d-flex justify-content-center my-2">
-        <a class="btn btn-outline-primary" href="add_review.php">add a review</a >
+        <a class="btn btn-outline-primary" href="user_add_review.php">add a review</a >
     </div>
 </div>
 <?php include "./partials/footer.php"; ?>

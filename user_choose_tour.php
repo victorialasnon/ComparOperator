@@ -3,9 +3,7 @@
 include "includes/db.php";
 include "includes/class-autoload.inc.php";
 ?>
-
 <!doctype html>
-
 <?php include "partials/head.php"; ?>
 <body >
 <header >
@@ -13,15 +11,6 @@ include "includes/class-autoload.inc.php";
 
 </header >
 <main class="destination-main">
-    <?php
-    //requete get all data from relation table
-    $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.price 
-                                            from tour_operators 
-                                                inner join destinations  
-                                                     on tour_operators.id = destinations.id_tour_operator ' );
-    ?>
-
-
     <div class="container">
     </div >
     <section >
@@ -66,8 +55,6 @@ include "includes/class-autoload.inc.php";
             </a >
         </div >
     </section >
-
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -135,18 +122,17 @@ include "includes/class-autoload.inc.php";
                     </tr >
                     </thead >
                     <tbody >
-                    <?php while ( $donnees = $requete -> fetch() ) : ?>
+
                         <tr >
-                            <td ><?= $donnees[ 'name' ] ?></td >
-                            <td ><?= $donnees[ 'is_premium' ] ?></td >
-                            <td ><?= $donnees[ 'grade' ] ?></td >
-                            <td ><?= $donnees[ 'price' ] ?></td >
+                            <td >club Med</td >
+                            <td >Non</td >
+                            <td ><4</td >
+                            <td >1232</td >
                             <td class="d-flex justify-content-center"><a
                                         class="btn btn-warning w-50"
                                         href="user/tour_operator.php"
                                 >Book</a ></td >
                         </tr >
-                    <?php endwhile; ?>
                     </tbody >
                 </table >
             </div >
@@ -156,10 +142,6 @@ include "includes/class-autoload.inc.php";
 
 </div>
 </section>
-
-     
-
-
 </main >
 
 <?php include "./partials/footer.php"; ?>

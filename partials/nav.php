@@ -21,11 +21,11 @@
                 </li >
                 <li class = "nav-item" >
                     <a class = "nav-link js-scroll-trigger"
-                       href = "./destinations.php" >DESTINATIONS</a >
+                       href = "./user_destinations.php" >DESTINATIONS</a >
                 </li >
                 <li class = "nav-item" >
                     <a class = "nav-link js-scroll-trigger"
-                       href = "./admin.php" >ADMIN</a >
+                       href = "./admin_index.php" >ADMIN</a >
                 </li >
             </ul >
         </div >

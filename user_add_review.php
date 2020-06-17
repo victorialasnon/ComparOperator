@@ -10,13 +10,12 @@ include "includes/class-autoload.inc.php";
 <body >
 <header >
     <?php include "partials/nav.php"; ?>
-
 </header >
 <main class="destination-main mt-4">
     <div class="container">
         <div class="row">
             <div class="col">
-                <form class="form-group" method="get" action="tour_operator.php">
+                <form class="form-group" method="get" action="user_tour_operator.php">
 
                     <div class="form-row mb-3">
                         <div class="col ">
