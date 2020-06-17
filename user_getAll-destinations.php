@@ -77,7 +77,7 @@ include "includes/class-autoload.inc.php";
                             <div class="to-card to-card_footer-btn">
                                 <a
                                         class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                                        href="user_choose_tour.php"
+                                        href="user_destination.php"
                                 >Read
                                  More</a >
                             </div >

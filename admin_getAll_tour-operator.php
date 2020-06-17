@@ -7,7 +7,7 @@ $tourOperators = new Manager();
 <!doctype html>
 <?php include "partials/head.php"; ?>
 <body >
-<?php include "partials/admin_nav.php";  ?>
+<?php include "partials/admin_nav.php"; ?>
 <main class="destination-main">
     <div class="container">
         <div class="jumbotron-fluid mt-4">
@@ -49,7 +49,7 @@ $tourOperators = new Manager();
                                 <div class="modal-body">
                                     <form
                                             class="form-group" method="post"
-                                            action="admin_add_tour-operator.php"
+                                            action="admin_crud_tour-operator.php"
                                     >
                                         <!-- TEXT FIELD GROUPS -->
                                         <div class="form-row  mb-3">
@@ -171,7 +171,8 @@ $tourOperators = new Manager();
                             >Update
                             </a >
                             <a
-                                    href="admin_getAll_tour-operator.php?id=<?= $tourOperator[ 'id' ] ?>"
+                                    href="admin_delete_tour-operator.php?id=<?=
+                                    $tourOperator[ 'id' ] ?>"
                                     class="btn
                                     btn-danger"
                                     style="width: 80px;"

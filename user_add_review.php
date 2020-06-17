@@ -1,9 +1,6 @@
 <?php
-
-include "includes/db.php";
 include "includes/class-autoload.inc.php";
 ?>
-
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
@@ -12,15 +9,19 @@ include "includes/class-autoload.inc.php";
     <?php include "partials/nav.php"; ?>
 </header >
 <main class="destination-main mt-4">
+    <h3 class="display-4 text-center mb-3">Add a Review</h3 >
     <div class="container">
         <div class="row">
             <div class="col">
-                <form class="form-group" method="get" action="user_tour_operator.php">
+                <form
+                        class="form-group" method="post"
+                        action="user_tour_operator.php"
+                >
 
                     <div class="form-row mb-3">
                         <div class="col ">
                             <input
-                                    class="form-control" type="text"
+                                    class="form-control" type="text" name="author"
                                     placeholder="Author" required
                             />
                         </div >
@@ -34,13 +35,13 @@ include "includes/class-autoload.inc.php";
                     </div >
                     <div class="col ">
                         <select class="form-control" id="gender">
-                            <option>Tour Operator</option>
-                            <option>Club med</option>
-                            <option>Simplon</option>
-                            <option>Numeriparc</option>
-                            <option>Roanne Game</option>
-                        </select>
-                    </div>
+                            <option >Tour Operator</option >
+                            <option >Club med</option >
+                            <option >Simplon</option >
+                            <option >Numeriparc</option >
+                            <option >Roanne Game</option >
+                        </select >
+                    </div >
                     <div class="btn d-flex justify-content-center">
 
                         <button class="btn btn-primary" type="submit">Submit
