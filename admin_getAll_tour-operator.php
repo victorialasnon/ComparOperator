@@ -178,10 +178,11 @@ $tourOperators = new Manager();
                             >Delete
                             </a >
                         </td >
-                        <?php endforeach; ?>
+                     
+                    </tr >
+                    <?php endforeach; ?>
                         <?php else: ?>
                         <?php endif; ?>
-                    </tr >
                     </tbody >
                 </table >
             </div >

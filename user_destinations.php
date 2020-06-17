@@ -10,10 +10,6 @@ include "includes/class-autoload.inc.php";
     <?php include "partials/nav.php"; ?>
 </header >
 
-<<<<<<< HEAD:destinations.php
-
-=======
->>>>>>> master:user_destinations.php
 <div class="container-fluid bg-light p-5">
     <main class="destination-main container">
         <h1 class="text-center text-uppercase mb-5">toutes nos destinations </h1 >
@@ -56,7 +52,6 @@ include "includes/class-autoload.inc.php";
 
 
         <div class="card-columns">
-<<<<<<< HEAD:destinations.php
         
                 <div class="card" id="myDIV">
                     <img
@@ -70,24 +65,6 @@ include "includes/class-autoload.inc.php";
                     <span class="badge badge-warning to-card_body-content_time">10 jours</span >
 
                             <span class="badge badge-primary to-card_body-content_price">1000 €</span >
-=======
-
-                <div class="card" id="myDIV">
-                    <img
-                            class="card-img-top img-fluid"
-                            src="images/images1.jpeg"
-                            alt=""
-                    />
-                    <div class="to-card_body card-body">
-                        <h4 class="card-title to-card_body-title
-                        text-center">Roanne</h4 >
-                        <div class="to-card_body-content my-4">
-                    <span class="badge badge-warning
-                    to-card_body-content_time">10 jours</span >
-
-                            <span class="badge badge-primary
-                            to-card_body-content_price">1234 €</span >
->>>>>>> master:user_destinations.php
                         </div >
                         <p class="card-text to-card_body-description text-center">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -110,12 +87,6 @@ include "includes/class-autoload.inc.php";
                         </div >
                     </div >
                 </div >
-<<<<<<< HEAD:destinations.php
-    
-            
-
-=======
->>>>>>> master:user_destinations.php
     </main >
 </div >
 <?php include "./partials/footer.php"; ?>
