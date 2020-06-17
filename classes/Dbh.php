@@ -3,10 +3,10 @@
 
 class Dbh
 {
-    private string $host = "127.0.0.1";
-    private string $user = "root";
-    private string $pwd = "";
-    private string $dbName = "ComparOperator";
+    private  $host = "127.0.0.1";
+    private  $user = "root";
+    private  $pwd = "";
+    private  $dbName = "ComparOperator";
 
     public function connect()
     {

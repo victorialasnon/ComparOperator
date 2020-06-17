@@ -250,6 +250,3 @@ $tourOperators = new Manager();
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
-
-

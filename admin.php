@@ -1,15 +1,7 @@
 <?php
-include "includes/db.php";
 include "includes/class-autoload.inc.php";
 ?>
-<?php
-//requete get all data from relation table
-$requete = $db -> query( 'select tour_operators.id,tour_operators.name,tour_operators.grade,tour_operators.link,tour_operators.is_premium,destinations.location,destinations.price from tour_operators inner join destinations  on tour_operators.id = destinations.id_tour_operator ' );
 
-//requete to get the tour operator in select form
-$requete5 = $db -> query( 'select * from tour_operators ' );
-
-?>
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
@@ -93,7 +85,7 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                                 </thead >
                                 <tbody >
                                 <?php  ?>
-                                <?php while ( $donnees = $requete -> fetch() ) : ?>
+                            <!--     <?php while ( $donnees = $requete -> fetch() ) : ?>
                                     <tr >
                                         <th scope="row"><?= $donnees[ 'id' ] ?></th >
                                         <td ><?= $donnees[ 'name' ] ?></td >
@@ -111,7 +103,7 @@ $requete5 = $db -> query( 'select * from tour_operators ' );
                                             </td >
                                         <?php endif; ?>
                                     </tr >
-                                <?php endwhile; ?>
+                                <?php endwhile; ?> -->
                                 </tbody >
                         </div >
                     </div >
