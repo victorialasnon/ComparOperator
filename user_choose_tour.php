@@ -11,6 +11,19 @@ include "includes/class-autoload.inc.php";
 
 </header >
 <main class="destination-main">
+<<<<<<< HEAD:user_choose_tour.php
+=======
+    <?php
+    //requete get all data from relation table
+    $requete = $db -> query( 'select tour_operators.name,tour_operators.grade,tour_operators.is_premium,destinations.price,destinations.location 
+                                            from tour_operators 
+                                                inner join destinations  
+                                                     on tour_operators.id = destinations.id_tour_operator
+                                                        group by destinations.location' );
+    ?>
+
+
+>>>>>>> 28108150b71618578b491178b60459bc73434ae3:choose_tour.php
     <div class="container">
     </div >
     <section >
