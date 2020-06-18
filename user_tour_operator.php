@@ -15,6 +15,7 @@ if(isset($_GET['id'])){
     $request=$db->prepare($getAllDestinationsTO);
     $request->execute(array($id));
     $patients=$request->fetchAll();
+    
 
 }
 ?>
@@ -46,7 +47,7 @@ if(isset($_GET['id'])){
                             style="width:250px;"
                     >
                     <div class="media-body align-self-center">
-                        <h4 >My Name <small ><i >Posted on May 20, 2018</i ></small >
+                        <h4 ><?= $patient[ 'name' ] ?> <small ><i >Posted on May 20, 2018</i ></small >
                         </h4 >
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Nam vel ipsum aliquam metus facilisis scelerisque.

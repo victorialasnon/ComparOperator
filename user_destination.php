@@ -101,7 +101,7 @@ if(isset($_GET['id'])){
                   
 
                     <div class="media-body align-self-center">
-                            <h4 ><?= $patient[ 'name' ] ?>
+                            <h4 ><?= $patient[ 'name' ] ?> <small ><i ><?= $patient[ 'days' ] ?> jours <?= $patient[ 'price' ] ?>€</i ></small >
                        
                         </h4 >
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -114,7 +114,7 @@ if(isset($_GET['id'])){
                             lobortis quam auctor at.</p >
 
                             <class="d-flex justify-content-center"><a
-                                        class="btn btn-warning w-50"
+                                        class="btn btn-warning w-25 float-right"
                                         href="user_tour_operator.php?id=<?=$patient['name'] ?>"
                                 >Book</a >
                     </div >
