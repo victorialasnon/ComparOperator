@@ -52,8 +52,6 @@ class Manager extends Dbh
         $deleteTourOperator = "DELETE FROM tour_operators WHERE id= ?";
         $deleteTourOperatorStatement = $this -> connect() -> prepare( $deleteTourOperator );
         $deleteTourOperatorStatement -> execute( array( $id ) );
-
-        return $deleteTourOperatorStatement -> fetch();
     }
 
     public function createDestination()
@@ -61,23 +59,17 @@ class Manager extends Dbh
 
     }
 
-    public function getAllDestinations( $id )
+    public function getAllDestinations()
     {
-        $getAllDestinations = "SELECT destinations.location,destinations.days,destinations.price,tour_operators.name 
-                                FROM destinations 
-                                inner join  tour_operators on
-                                 destinations.id_tour_operator=tour_operators.id 
-                                 where  id_tour_operator=? ";
-
+        $getAllDestinations = "SELECT * FROM destinations inner join tour_operators where destinations.id_tour_operator = tour_operators.id";
         //prepare the request
-        $getAllDestinationsStatement = $this -> connect() -> prepare( $getAllDestinations );
-        //execute the request
-       echo $getAllDestinationsStatement -> execute($id);
-        while ( $getDestinationResult = $getAllDestinationsStatement -> fetch()
-        ) {
-            //return the request array
-            return $getDestinationResult;
-        }
+        $getAllDestinationsStatement = $this -> connect() -> query($getAllDestinations );
+
+         $getDestinationResults = $getAllDestinationsStatement -> fetchAll();
+         foreach ($getDestinationResults as $getDestinationResult){
+             return $getDestinationResult;
+         }
+
     }
 
     public function getOperatorByDestination()

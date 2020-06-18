@@ -2,8 +2,10 @@
 include "includes/class-autoload.inc.php";
 //objet tourOperator from Manager class
 $destinations = new Manager();
+$tourOperators = new Manager();
 
 ?>
+
 
 <!doctype html>
 
@@ -65,7 +67,8 @@ $destinations = new Manager();
 
 
 <main class="destination-main">
-    <h1 class="text-center display-4 mt-4">DESTINATIONS DATABASE</h1 >
+    <h1 class="text-center display-4 mt-4">
+        DATABASE</h1 >
 
 
     <div class="container">
@@ -110,6 +113,36 @@ $destinations = new Manager();
                                             action="tourOperator_crud-destination.php"
                                     >
                                         <!-- TEXT FIELD GROUPS -->
+                                        <div class="form-row mb-3">
+                                            <div class="col">
+                                                <select class="form-control" id="tour-operator">
+                                                    <?php if ( $tourOperators -> getAllOperator() ): ?>
+                                                        <?php foreach ($tourOperators -> getAllOperator() as
+                                                                       $tourOperator): ?>
+                                                            <option ><?= $tourOperator[ 'id' ] ?> - <?=
+                                                                $tourOperator[ 'name' ] ?></option >
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                                </select >
+                                            </div >
+                                        </div >
+                                        <div class="form-row mb-3">
+                                            <div class="col ">
+                                                <?php if ( $tourOperators -> getAllOperator() ): ?>
+                                                <?php foreach ($tourOperators -> getAllOperator() as
+                                                $tourOperator): ?>
+                                                <input
+                                                        class="form-control"
+                                                        type="text"
+                                                        name="name"
+                                                       value="<?= $tourOperator[ 'id' ] ?> - <?=
+                                                       $tourOperator[ 'name' ] ?>"
+                                                />
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            </div >
+
+                                        </div >
                                         <div class="form-row mb-3">
                                             <div class="col ">
                                                 <input
@@ -184,27 +217,34 @@ $destinations = new Manager();
                     </tr >
                     </thead >
                     <tbody >
-                    <th scope="row">1</th >
-                    <td >Roanne</td >
-                    <td >10</td >
-                    <td >1400</td >
-                    <td class="text-center">
+                    <?php if ($destinations -> getAllDestinations()): ?>
+                        <?php foreach ($destinations -> getAllDestinations() as
+                                       $destination): ?>
+                            <tr>
+                                <th scope="row"><?= $destination[ 'id' ] ?></th >
+                                <td ><?= $destination[ 'location' ] ?></td >
+                                <td ><?= $destination[ 'days' ] ?></td >
+                                <td ><?= $destination[ 'price' ] ?></td >
+                                <td class="text-center">
 
-                        <a
-                                href="tourOperator_update_destination.php"
-                                class="btn
+                                    <a
+                                            href="tourOperator_update_destination.php"
+                                            class="btn
                                     btn-primary mr-2"
-                                style="width: 80px;"
-                        >Update
-                        </a >
-                        <a
-                                href="tourOperator_delete_destination.php"
-                                class="btn
+                                            style="width: 80px;"
+                                    >Update
+                                    </a >
+                                    <a
+                                            href="tourOperator_delete_destination.php"
+                                            class="btn
                                     btn-danger"
-                                style="width: 80px;"
-                        >Delete
-                        </a >
-                    </td >
+                                            style="width: 80px;"
+                                    >Delete
+                                    </a >
+                                </td >
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                     </tbody >
                 </table >
             </div >

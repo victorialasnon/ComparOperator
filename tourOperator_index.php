@@ -1,8 +1,27 @@
 <?php
 include "includes/class-autoload.inc.php";
-$tourOperators = new Manager();
-?>
+//$destinations = new Manager();
+$db_host = 'mysql:host=127.0.0.1;';
+$db_name = 'dbname=ComparOperator';
+$db_hn = $db_host . $db_name;
+$db_username = 'root';
+$db_password = '';
 
+try {
+    $db = new PDO( $db_hn , $db_username , $db_password );
+    $db -> setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
+//    echo "Successful Connexion";
+} catch (PDOException $e) {
+    echo "Connection Failed : " . $e -> getMessage();
+}
+$getAllDestinations = "SELECT * FROM destinations 
+                        inner join tour_operators 
+                        where destinations.id_tour_operator = tour_operators.id ";
+//prepare the request
+$getAllDestinationsRequest =$db-> query( $getAllDestinations );
+//execute the request
+$getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll();
+?>
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
@@ -74,8 +93,6 @@ $tourOperators = new Manager();
         </div >
     </div >
     </div >
-
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
@@ -84,19 +101,20 @@ $tourOperators = new Manager();
                     <div class="form-row mb-3">
                         <div class="col">
                             <select class="form-control" id="tour-operator">
-                                <?php if ( $tourOperators -> getAllOperator() ): ?>
-                                <?php foreach ($tourOperators -> getAllOperator() as
-                                $tourOperator): ?>
-                                <option ><?= $tourOperator[ 'id' ] ?> - <?=
-                                    $tourOperator[ 'name' ] ?></option >
+                                    <?php foreach($getAllDestinationsStatements as $getAllDestinationsStatement): ?>
+                                        <option
+                                                value="<?=
+                                                $getAllDestinationsStatement[ 'name' ] ?>"
+                                        ><?= $getAllDestinationsStatement[ 'id' ] ?> - <?=
+                                            $getAllDestinationsStatement[ 'name' ] ?></option >
                                     <?php endforeach; ?>
-                                <?php endif; ?>
                             </select >
                         </div >
                     </div >
                     <div class="btn d-flex justify-content-center">
                         <a
-                                href="tourOperator_getAll-destination.php?id=<?= $tourOperator[ 'id' ] ?>"
+                                href="tourOperator_getAll-destination.php?id=<?=
+                                $getAllDestinationsStatement[ 'id' ] ?>"
                                 class="btn btn-outline-info" type="submit"
                         >Get
                          Connect

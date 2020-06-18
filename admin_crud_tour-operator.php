@@ -28,7 +28,6 @@ if ( isset( $_POST[ 'add-to' ] ) ) {
 } else if ( isset($_POST[ 'delete-to' ] )) {
     $id = $_GET[ 'id' ];
    $tourOperators -> deleteTourOperator( $id );
-    echo "hello deleted";
     header( "Location: admin_getAll_tour-operator.php" );
 
 
