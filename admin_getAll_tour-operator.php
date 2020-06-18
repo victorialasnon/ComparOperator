@@ -7,7 +7,51 @@ $tourOperators = new Manager();
 <!doctype html>
 <?php include "partials/head.php"; ?>
 <body >
-<?php include "partials/admin_nav.php"; ?>
+<header >
+    <nav
+            class="navbar navbar-expand-lg navbar-dark bg-dark "
+            id="mainNav"
+    >
+        <div class="container">
+            <a
+                    class="navbar-brand js-scroll-trigger"
+                    href="index.php"
+            >Welcome Admin</a >
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span >
+            </button >
+            <div
+                    class="collapse navbar-collapse"
+                    id="navbarResponsive"
+            >
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a
+                                class="nav-link js-scroll-trigger"
+                                href="./admin_index.php"
+                        >HOME</a >
+                    </li >
+                    <li class="nav-item active">
+                        <a
+                                class="nav-link js-scroll-trigger"
+                                href="./admin_getAll_tour-operator.php"
+                        >Tours</a >
+                    </li >
+
+                </ul >
+            </div >
+        </div >
+    </nav >
+
+</header >
 <main class="destination-main">
     <div class="container">
         <div class="jumbotron-fluid mt-4">
@@ -81,11 +125,8 @@ $tourOperators = new Manager();
                                                         class="form-control"
                                                         type="text"
                                                         name="link"
-
                                                         value="Pas de Site web"
-
                                                         placeholder="Link"
-
                                                 />
                                             </div >
                                             <div class="col-3">
@@ -98,11 +139,8 @@ $tourOperators = new Manager();
                                                         max="1"
                                                         required
                                                 />
-
                                             </div >
                                         </div >
-
-
                                         <div class="modal-footer">
                                             <button
                                                     type="button"
@@ -127,17 +165,6 @@ $tourOperators = new Manager();
 
                 </div >
             </div >
-
-            <!--   <div class="container">
-                   <div class="row justify-content-center">
-                       <div class="col-6">
-                           <div class="alert alert-success">
-                               <p class="text-center">Tour Operator Added Successfully!!</p>
-                           </div>
-                       </div>
-                   </div>
-               </div>-->
-
             <div class="card-body">
                 <table class="table table-dark">
                     <thead >
@@ -160,7 +187,7 @@ $tourOperators = new Manager();
                         <th ><?= $tourOperator[ 'id' ] ?></th >
                         <td width="250px"><?= $tourOperator[ 'name' ] ?></td >
                         <td ><?= $tourOperator[ 'grade' ] ?></td >
-                        <td ><?= $tourOperator[ 'link' ] ?></td >
+                        <td width="350px"><?= $tourOperator[ 'link' ] ?></td >
                         <td ><?= $tourOperator[ 'is_premium' ] ?></td >
                         <td class="text-center">
                             <a
@@ -180,7 +207,7 @@ $tourOperators = new Manager();
                             </a >
                         </td >
                         <?php endforeach; ?>
-                        <?php else: ?>
+
                         <?php endif; ?>
                     </tr >
                     </tbody >

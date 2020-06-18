@@ -18,12 +18,11 @@ include "includes/class-autoload.inc.php";
     <video id="videoBG" autoplay muted loop>
         <source src="videos/video.mp4" type="video/mp4">
     </video >
-
-
         <div class="text-center text-white main-container">
-            <h5 class="main-container_lead display-4">Enjoy Your Trip </h5 >
+            <h5 class="main-container_lead ">Enjoy Your Trip </h5 >
             <a
-                    class="btn btn-outline-warning text-white btn-lg main-content_btn mt-4"
+                    class="btn btn-outline-warning text-white btn-lg
+                    main-content_btn1 mt-4"
                     href="user_getAll-destinations.php"
                     role="button"
             >
@@ -32,11 +31,13 @@ include "includes/class-autoload.inc.php";
             </a >
         </div >
 
-            <div class="text-center text-white main-container">
-                <h5 class="main-container_lead display-4">Are You a Tour Operator? </h5 >
+            <div class="text-center text-warning main-container">
+                <h5 class="main-container_lead">Are You a Tour Operator?
+                </h5 >
                 <a
-                        class="btn btn-outline-warning text-white btn-lg main-content_btn mt-4"
-                        href="tourOperator_signIn.php"
+                        class="btn btn-warning text-white btn-lg
+                        main-content_btn2 mt-4"
+                        href="tourOperator_index.php"
                         role="button"
                 >
                     inscrivez vous ici
