@@ -112,7 +112,7 @@ $getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll();
                     <div class="btn d-flex justify-content-center">
                         <a
                                 href="tourOperator_getAll-destination.php?id=<?=
-                                $getAllDestinationsStatement[ 'id' ] ?>"
+                                $getAllDestinationsStatement[ 'name' ] ?>"
                                 class="btn btn-outline-info" type="submit"
                         >Get
                          Connect

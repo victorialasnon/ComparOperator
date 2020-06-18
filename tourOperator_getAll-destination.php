@@ -217,14 +217,12 @@ $tourOperators = new Manager();
                     </tr >
                     </thead >
                     <tbody >
-                    <?php if ($destinations -> getAllDestinations()): ?>
-                        <?php foreach ($destinations -> getAllDestinations() as
-                                       $destination): ?>
+
                             <tr>
-                                <th scope="row"><?= $destination[ 'id' ] ?></th >
-                                <td ><?= $destination[ 'location' ] ?></td >
-                                <td ><?= $destination[ 'days' ] ?></td >
-                                <td ><?= $destination[ 'price' ] ?></td >
+                                <th scope="row">1</th >
+                                <td >Roanne</td >
+                                <td >10 days</td >
+                                <td >1470</td >
                                 <td class="text-center">
 
                                     <a
@@ -242,9 +240,7 @@ $tourOperators = new Manager();
                                     >Delete
                                     </a >
                                 </td >
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+
                     </tbody >
                 </table >
             </div >

@@ -2,7 +2,6 @@
 //appel de la fonction autoload
 include "includes/class-autoload.inc.php";
 //objet tourOperator from Manager class
-$destinations = new Manager();
 
 
 //if ( isset( $_POST[ 'add-to' ] ) ) {
