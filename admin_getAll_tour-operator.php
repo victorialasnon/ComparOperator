@@ -206,10 +206,10 @@ $tourOperators = new Manager();
                             >Delete
                             </a >
                         </td >
-                        <?php endforeach; ?>
-
-                        <?php endif; ?>
+                     
                     </tr >
+                    <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody >
                 </table >
             </div >
@@ -220,6 +220,3 @@ $tourOperators = new Manager();
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
-
-

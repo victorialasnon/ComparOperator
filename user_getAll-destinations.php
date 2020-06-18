@@ -1,6 +1,23 @@
 <?php
 include "includes/class-autoload.inc.php";
+include "includes/db.php";
 ?>
+
+<?php
+
+
+ 
+
+$getAllDestinations = "SELECT * FROM destinations inner join tour_operators where destinations.id_tour_operator = tour_operators.id group by destinations.location";
+//prepare the request
+$getAllDestinationsRequest = $db-> query( $getAllDestinations );
+//execute the request
+ $getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll();
+
+
+
+?>
+
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
@@ -49,24 +66,22 @@ include "includes/class-autoload.inc.php";
     </div>
 </section> -->
 
-
         <div class="card-columns">
-
+        <?php foreach($getAllDestinationsStatements as $getAllDestinationsStatement): ?>
                 <div class="card" id="myDIV">
+                
                     <img
                             class="card-img-top img-fluid"
-                            src="images/images1.jpeg"
+                            src="<?= $getImagesStatement[ 'img_url' ] ?>"
                             alt=""
                     />
+              
                     <div class="to-card_body card-body">
-                        <h4 class="card-title to-card_body-title
-                        text-center">Roanne</h4 >
+                        <h4 class="card-title to-card_body-title text-center"><?= $getAllDestinationsStatement[ 'location' ] ?></h4 >
                         <div class="to-card_body-content my-4">
-                    <span class="badge badge-warning
-                    to-card_body-content_time">10 jours</span >
+                    <span class="badge badge-warning to-card_body-content_time"><?= $getAllDestinationsStatement[ 'days' ] ?> jours</span >
 
-                            <span class="badge badge-primary
-                            to-card_body-content_price">1234 €</span >
+                            <span class="badge badge-primary to-card_body-content_price"><?= $getAllDestinationsStatement[ 'price' ] ?> €</span >
                         </div >
                         <p class="card-text to-card_body-description text-center">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -77,9 +92,13 @@ include "includes/class-autoload.inc.php";
                         <div class="to-card to-card_footer">
 
                             <div class="to-card to-card_footer-btn">
+                            
                                 <a
                                         class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                                        href="user_destination.php"
+                                        href="user_destination.php?id=<?=$getAllDestinationsStatement['location'] ?>"
+                            
+
+
                                 >Read
                                  More</a >
                             </div >
@@ -89,12 +108,9 @@ include "includes/class-autoload.inc.php";
                         </div >
                     </div >
                 </div >
+            <?php endforeach; ?>
     </main >
 </div >
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
-
-
-

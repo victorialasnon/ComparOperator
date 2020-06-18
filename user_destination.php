@@ -1,6 +1,33 @@
 <?php
 
 include "includes/class-autoload.inc.php";
+include "includes/db.php";
+?>
+
+<?php
+//requete get all data from relation table
+
+
+
+/* $requete = $db -> query( 'SELECT destinations.location,destinations.days,destinations.price, images.img_url 
+                          from destinations 
+                          inner join images  on destinations.id = images.id_destination
+                          group by destinations.location' ); */
+?>
+<?php
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    $getAllDestinationsTO = "SELECT * FROM destinations inner  join tour_operators on destinations.id_tour_operator=tour_operators.id  where location= ?";
+    $request=$db->prepare($getAllDestinationsTO);
+    $request->execute(array($id));
+    $patients=$request->fetchAll();
+
+    $getAllDestinationsTO2 = "SELECT * FROM destinations inner  join tour_operators on destinations.id_tour_operator=tour_operators.id  where location= ? group by location";
+    $request2=$db->prepare($getAllDestinationsTO2);
+    $request2->execute(array($id));
+    $patients2=$request2->fetchAll();
+
+}
 ?>
 <!doctype html>
 <?php include "partials/head.php"; ?>
@@ -10,7 +37,9 @@ include "includes/class-autoload.inc.php";
 
 </header >
 <main class="destination-main">
-<h1 class="display-2 text-center my-4">Roanne</h1>
+<?php foreach($patients2 as $patient2): ?>
+<h1 class="display-2 text-center my-4"><?= $patient2[ 'location' ] ?></h1>
+<?php endforeach; ?>
 
     <section >
         <div
@@ -61,6 +90,7 @@ include "includes/class-autoload.inc.php";
                                                        Operator</h3 >
             </div >
         </div >
+        <?php foreach($patients as $patient): ?>
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="media border p-3 flex-column flex-md-row">
@@ -68,8 +98,11 @@ include "includes/class-autoload.inc.php";
                             src="images/images1.jpeg" alt="#" class="mr-3"
                             style="width:250px;"
                     >
+                  
+
                     <div class="media-body align-self-center">
-                        <h4 >My Name <small ><i >Posted on May 20, 2018</i ></small >
+                            <h4 ><?= $patient[ 'name' ] ?>
+                       
                         </h4 >
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Nam vel ipsum aliquam metus facilisis scelerisque.
@@ -79,71 +112,26 @@ include "includes/class-autoload.inc.php";
                             ridiculus mus. Phasellus at aliquet dui. Mauris dapibus
                             lectus id laoreet iaculis. Duis auctor augue augue, eget
                             lobortis quam auctor at.</p >
+
+                            <class="d-flex justify-content-center"><a
+                                        class="btn btn-warning w-50"
+                                        href="user_tour_operator.php?id=<?=$patient['name'] ?>"
+                                >Book</a >
                     </div >
                 </div >
             </div >
         </div >
-        <div class="row">
-            <div class="col-12 mb-4">
-                <div class="media border p-3 flex-column flex-md-row">
-                    <div class="media-body align-self-center">
-                        <h4 >My Name <small ><i >Posted on May 20, 2018</i ></small >
-                        </h4 >
-                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Nam vel ipsum aliquam metus facilisis scelerisque.
-                            Quisque vitae condimentum nulla. Vestibulum lobortis
-                            ullamcorper augue id consequat. Orci varius natoque
-                            penatibus et magnis dis parturient montes, nascetur
-                            ridiculus mus. Phasellus at aliquet dui. Mauris dapibus
-                            lectus id laoreet iaculis. Duis auctor augue augue, eget
-                            lobortis quam auctor at.</p >
-                    </div >
-                    <img
-                            src="images/images1.jpeg" alt="#" class="mr-3"
-                            style="width:250px;"
-                    >
-                </div >
-            </div >
-        </div >
+        <?php endforeach; ?>
+
+
     </div >
     </section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-bordered">
-                    <thead >
-                    <tr >
-                        <th >Tour Operator</th >
-                        <th >Premium</th >
-                        <th >Grade</th >
-                        <th >Price</th >
-                        <th >Book Here</th >
-
-                    </tr >
-                    </thead >
-                    <tbody >
-
-                        <tr >
-                            <td >club Med</td >
-                            <td >Non</td >
-                            <td >4</td >
-                            <td >1232</td >
-                            <td class="d-flex justify-content-center"><a
-                                        class="btn btn-warning w-50"
-                                        href="user_tour_operator.php"
-                                >Book</a ></td >
-                        </tr >
-                    </tbody >
-                </table >
-            </div >
-        </div >
     </div >
-
-
+ 
 </div>
 </section>
+</div>
 </main >
-
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >

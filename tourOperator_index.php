@@ -14,9 +14,7 @@ try {
 } catch (PDOException $e) {
     echo "Connection Failed : " . $e -> getMessage();
 }
-$getAllDestinations = "SELECT * FROM destinations 
-                        inner join tour_operators 
-                        where destinations.id_tour_operator = tour_operators.id ";
+$getAllDestinations = "SELECT * FROM tour_operators";
 //prepare the request
 $getAllDestinationsRequest =$db-> query( $getAllDestinations );
 //execute the request
