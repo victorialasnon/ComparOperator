@@ -1,7 +1,23 @@
 <?php
 include "includes/class-autoload.inc.php";
+include "includes/db.php";
+?>
+
+<?php
+//requete get all data from relation table
+
+$requete = $db -> query( 'SELECT destinations.id,destinations.location,destinations.days,destinations.price 
+                          FROM tour_operators 
+                          inner join destinations  
+                          on tour_operators.id = destinations.id_tour_operator ' );
+                         
+$requete2 = $db -> query( 'SELECT destinations.location,destinations.days,destinations.price, images.img_url 
+                          from destinations 
+                          inner join images  on destinations.id = images.id_destination
+                          group by destinations.location' );
 
 ?>
+
 <!doctype html>
 
 <?php include "partials/head.php"; ?>
@@ -52,19 +68,19 @@ include "includes/class-autoload.inc.php";
 
 
         <div class="card-columns">
-        
+        <?php while ( $donnees = $requete2 -> fetch() ) : ?>
                 <div class="card" id="myDIV">
                     <img
                             class="card-img-top img-fluid"
-                            src="./images/images1.jpeg"
+                            src="<?= $donnees[ 'img_url' ] ?>"
                             alt=""
                     />
                     <div class="to-card_body card-body">
-                        <h4 class="card-title to-card_body-title text-center">city</h4 >
+                        <h4 class="card-title to-card_body-title text-center"><?= $donnees[ 'location' ] ?></h4 >
                         <div class="to-card_body-content my-4">
-                    <span class="badge badge-warning to-card_body-content_time">10 jours</span >
+                    <span class="badge badge-warning to-card_body-content_time"><?= $donnees[ 'days' ] ?> jours</span >
 
-                            <span class="badge badge-primary to-card_body-content_price">1000 €</span >
+                            <span class="badge badge-primary to-card_body-content_price"><?= $donnees[ 'price' ] ?> €</span >
                         </div >
                         <p class="card-text to-card_body-description text-center">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -87,6 +103,7 @@ include "includes/class-autoload.inc.php";
                         </div >
                     </div >
                 </div >
+        <?php endwhile; ?>
     </main >
 </div >
 <?php include "./partials/footer.php"; ?>

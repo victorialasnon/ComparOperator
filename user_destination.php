@@ -1,7 +1,25 @@
 <?php
 
 include "includes/class-autoload.inc.php";
+include "includes/db.php";
 ?>
+
+<?php
+//requete get all data from relation table
+
+$requete3 = $db -> query( 'SELECT *
+                          FROM  destinations
+                          inner join tour_operators  
+                          on tour_operators.id = destinations.id_tour_operator
+                          group by destinations.location' );
+$donnees =$requete3->fetchAll();
+
+/* $requete = $db -> query( 'SELECT destinations.location,destinations.days,destinations.price, images.img_url 
+                          from destinations 
+                          inner join images  on destinations.id = images.id_destination
+                          group by destinations.location' ); */
+?>
+
 <!doctype html>
 <?php include "partials/head.php"; ?>
 <body >
@@ -10,7 +28,10 @@ include "includes/class-autoload.inc.php";
 
 </header >
 <main class="destination-main">
-<h1 class="display-2 text-center my-4">Roanne</h1>
+<?php foreach ( $donnees as $donnee) : ?>
+<h1 class="display-2 text-center my-4"><?= $donnee[ 'location' ] ?></h1>
+
+<?php endforeach; ?>
 
     <section >
         <div
@@ -69,7 +90,9 @@ include "includes/class-autoload.inc.php";
                             style="width:250px;"
                     >
                     <div class="media-body align-self-center">
-                        <h4 >My Name <small ><i >Posted on May 20, 2018</i ></small >
+                    <?php foreach ( $donnees as $donnee) : ?>
+                            <h4 ><?= $donnee[ 'name' ] ?><small ><i ><?= $donnee[ 'days' ] ?><?= $donnee[ 'price' ] ?></i ></small >
+                        <?php endforeach; ?>
                         </h4 >
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Nam vel ipsum aliquam metus facilisis scelerisque.
@@ -87,8 +110,10 @@ include "includes/class-autoload.inc.php";
             <div class="col-12 mb-4">
                 <div class="media border p-3 flex-column flex-md-row">
                     <div class="media-body align-self-center">
-                        <h4 >My Name <small ><i >Posted on May 20, 2018</i ></small >
-                        </h4 >
+                        <?php foreach ( $donnees as $donnee) : ?>
+                            <h4 ><?= $donnee[ 'name' ] ?><small ><i ><?= $donnee[ 'days' ] ?><?= $donnee[ 'price' ] ?></i ></small >
+                        <?php endforeach; ?>
+
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Nam vel ipsum aliquam metus facilisis scelerisque.
                             Quisque vitae condimentum nulla. Vestibulum lobortis
@@ -96,54 +121,24 @@ include "includes/class-autoload.inc.php";
                             penatibus et magnis dis parturient montes, nascetur
                             ridiculus mus. Phasellus at aliquet dui. Mauris dapibus
                             lectus id laoreet iaculis. Duis auctor augue augue, eget
-                            lobortis quam auctor at.</p >
+                            lobortis quam auctor at.
+                        </p >
                     </div >
                     <img
-                            src="images/images1.jpeg" alt="#" class="mr-3"
-                            style="width:250px;"
+                        src="images/images1.jpeg" alt="#" class="mr-3"
+                        style="width:250px;"
                     >
                 </div >
             </div >
         </div >
     </div >
     </section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-bordered">
-                    <thead >
-                    <tr >
-                        <th >Tour Operator</th >
-                        <th >Premium</th >
-                        <th >Grade</th >
-                        <th >Price</th >
-                        <th >Book Here</th >
-
-                    </tr >
-                    </thead >
-                    <tbody >
-
-                        <tr >
-                            <td >club Med</td >
-                            <td >Non</td >
-                            <td >4</td >
-                            <td >1232</td >
-                            <td class="d-flex justify-content-center"><a
-                                        class="btn btn-warning w-50"
-                                        href="user_tour_operator.php"
-                                >Book</a ></td >
-                        </tr >
-                    </tbody >
-                </table >
-            </div >
-        </div >
     </div >
-
-
+ 
 </div>
 </section>
+</div>
 </main >
-
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >

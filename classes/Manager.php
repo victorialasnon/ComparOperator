@@ -46,6 +46,7 @@ class Manager extends Dbh
             $is_premium , $id ) );
 
     }
+
     public function deleteTourOperator( $id )
     {
         $deleteTourOperator = "DELETE FROM tour_operators WHERE id= ?";
@@ -54,19 +55,13 @@ class Manager extends Dbh
 
         return $deleteTourOperatorStatement -> fetch();
     }
+
     public function createDestination()
     {
 
     }
 
-    public function updateOperatorToPremium()
-    {
-
-    }
-
-
-
-    public function getAllDestinations()
+    public function getAllDestinations( $id )
     {
         //putting sql request in variable
         $getAllDestinations = "SELECT destinations.id,destinations.location, destinations.days, destinations.price, tour_operators.name
@@ -74,14 +69,16 @@ class Manager extends Dbh
                                INNER JOIN tour_operators 
                                on destination.id_tour_operator = tour_operators.id";
 
+
+
         //prepare the request
         $getAllDestinationsStatement = $this -> connect() -> prepare( $getAllDestinations );
         //execute the request
-        $getAllDestinationsStatement -> execute();
-        while ( $getAllDestinationsResult = $getAllDestinationsStatement -> fetchAll() ) {
+       echo $getAllDestinationsStatement -> execute($id);
+        while ( $getDestinationResult = $getAllDestinationsStatement -> fetch()
+        ) {
             //return the request array
-            return $getAllDestinationsResult;
-            echo "hello";
+            return $getDestinationResult;
         }
     }
 

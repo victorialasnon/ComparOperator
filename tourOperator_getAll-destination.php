@@ -1,12 +1,15 @@
 <?php
-//appel de la fonction autoload
 include "includes/class-autoload.inc.php";
 //objet tourOperator from Manager class
-$tourOperators = new Manager();
+$destinations = new Manager();
+
 ?>
+
 <!doctype html>
+
 <?php include "partials/head.php"; ?>
 <body >
+
 <header >
     <nav
             class="navbar navbar-expand-lg navbar-dark bg-dark "
@@ -16,7 +19,7 @@ $tourOperators = new Manager();
             <a
                     class="navbar-brand js-scroll-trigger"
                     href="index.php"
-            >Welcome Admin</a >
+            >Welcome Tour Operator</a >
             <button
                     class="navbar-toggler"
                     type="button"
@@ -36,14 +39,21 @@ $tourOperators = new Manager();
                     <li class="nav-item">
                         <a
                                 class="nav-link js-scroll-trigger"
-                                href="./admin_index.php"
+                                href="./tourOperator_index.php"
                         >HOME</a >
                     </li >
+
                     <li class="nav-item active">
                         <a
                                 class="nav-link js-scroll-trigger"
-                                href="./admin_getAll_tour-operator.php"
-                        >Tours</a >
+                                href="./tourOperator_getAll-destination.php"
+                        >Destinations</a >
+                    </li >
+                    <li class="nav-item">
+                        <a
+                                class="nav-link js-scroll-trigger"
+                                href="./tourOperator_getAll-reviews.php"
+                        >See Reviews</a >
                     </li >
 
                 </ul >
@@ -52,22 +62,27 @@ $tourOperators = new Manager();
     </nav >
 
 </header >
+
+
 <main class="destination-main">
+    <h1 class="text-center display-4 mt-4">DESTINATIONS DATABASE</h1 >
+
+
     <div class="container">
         <div class="jumbotron-fluid mt-4">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h3 class="card-title">TOUR OPERATOR DATABASE</h3 >
+                    <h3 class="card-title">DESTINATIONS DATABASE</h3 >
+
                     <!--starting modal-->
                     <!-- Button trigger modal -->
                     <button
-                            type="button" class="btn btn-primary mr-4"
+                            type="button" class="btn btn-info mr-4"
                             data-toggle="modal"
                             data-target="#addTourModal"
                     >
-          <span ><i
-                      class="fas fa-city mr-2"
-              ></i ></span >Add Tour Operator
+                        <span ><i class="fas fa-plane-departure mr-2"></i ></span >Add
+                                                                                   Destination
                     </button >
 
                     <!-- Modal -->
@@ -80,8 +95,7 @@ $tourOperators = new Manager();
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">
-                                        Add Tour
-                                        Operator</h5 >
+                                        Add Destination</h5 >
                                     <button
                                             type="button" class="close"
                                             data-dismiss="modal"
@@ -93,54 +107,45 @@ $tourOperators = new Manager();
                                 <div class="modal-body">
                                     <form
                                             class="form-group" method="post"
-                                            action="admin_crud_tour-operator.php"
+                                            action="tourOperator_crud-destination.php"
                                     >
                                         <!-- TEXT FIELD GROUPS -->
-                                        <div class="form-row  mb-3">
-
-                                            <div class="col-8">
+                                        <div class="form-row mb-3">
+                                            <div class="col ">
                                                 <input
                                                         class="form-control"
                                                         type="text"
-                                                        name="name" required
-                                                        placeholder="Tour Operator name"
+                                                        name="location"
+                                                        placeholder="City"
                                                 />
                                             </div >
 
-                                            <div class="col-4">
-                                                <input
-                                                        class="form-control"
-                                                        type="number"
-                                                        name="grade"
-                                                        min="0"
-                                                        max="5"
-                                                        placeholder="Grade" required
-                                                />
-
-                                            </div >
                                         </div >
                                         <div class="form-row mb-3">
-                                            <div class="col-9">
-                                                <input
-                                                        class="form-control"
-                                                        type="text"
-                                                        name="link"
-                                                        value="Pas de Site web"
-                                                        placeholder="Link"
-                                                />
-                                            </div >
-                                            <div class="col-3">
+                                            <div class="col-5">
                                                 <input
                                                         class="form-control"
                                                         type="number"
-                                                        name="is_premium"
-                                                        placeholder="Premium"
-                                                        min="0"
-                                                        max="1"
-                                                        required
+                                                        name="days"
+                                                        min="5"
+                                                        max="14"
+                                                        placeholder="Days" required
+                                                />
+                                            </div >
+                                            <div class="col">
+                                                <input
+                                                        class="form-control"
+                                                        type="number"
+                                                        name="price"
+                                                        min="350"
+                                                        max="2500"
+                                                        placeholder="Price (€)"
                                                 />
                                             </div >
                                         </div >
+
+                                        </div >
+
                                         <div class="modal-footer">
                                             <button
                                                     type="button"
@@ -152,7 +157,7 @@ $tourOperators = new Manager();
                                                     class="btn btn-primary"
                                                     name="add-to"
                                                     type="submit"
-                                            >Add Tour Operator
+                                            >Add Destination
                                             </button >
                                         </div >
                                     </form >
@@ -163,60 +168,51 @@ $tourOperators = new Manager();
                     <!--end starting modal-->
 
 
+
                 </div >
             </div >
             <div class="card-body">
                 <table class="table table-dark">
                     <thead >
                     <tr >
-                        <th scope="col">ID</th >
-                        <th scope="col">Tour Operator</th >
-                        <th scope="col">Grade</th >
-                        <th scope="col">Link</th >
-                        <th scope="col">Premium</th >
+                        <th >id</th >
+                        <th >City</th >
+                        <th >Days</th >
+                        <th >Price (€)</th >
                         <th class="text-center">Actions</th >
+
                     </tr >
                     </thead >
                     <tbody >
-                    <!-- display of all tour operator by
-                    calling the method from Manager Class-->
-                    <?php if ($tourOperators -> getAllOperator()): ?>
-                    <?php foreach ($tourOperators -> getAllOperator() as
-                    $tourOperator): ?>
-                    <tr >
-                        <th ><?= $tourOperator[ 'id' ] ?></th >
-                        <td width="250px"><?= $tourOperator[ 'name' ] ?></td >
-                        <td ><?= $tourOperator[ 'grade' ] ?></td >
-                        <td width="350px"><?= $tourOperator[ 'link' ] ?></td >
-                        <td ><?= $tourOperator[ 'is_premium' ] ?></td >
-                        <td class="text-center">
-                            <a
-                                    href="admin_update_tour-operator.php?id=<?= $tourOperator[ 'id' ] ?>"
-                                    class="btn
+                    <th scope="row">1</th >
+                    <td >Roanne</td >
+                    <td >10</td >
+                    <td >1400</td >
+                    <td class="text-center">
+
+                        <a
+                                href="tourOperator_update_destination.php"
+                                class="btn
                                     btn-primary mr-2"
-                                    style="width: 80px;"
-                            >Update
-                            </a >
-                            <a
-                                    href="admin_delete_tour-operator.php?id=<?=
-                                    $tourOperator[ 'id' ] ?>"
-                                    class="btn
+                                style="width: 80px;"
+                        >Update
+                        </a >
+                        <a
+                                href="tourOperator_delete_destination.php"
+                                class="btn
                                     btn-danger"
-                                    style="width: 80px;"
-                            >Delete
-                            </a >
-                        </td >
-                     
-                    </tr >
-                    <?php endforeach; ?>
-                        <?php endif; ?>
+                                style="width: 80px;"
+                        >Delete
+                        </a >
+                    </td >
                     </tbody >
                 </table >
             </div >
         </div >
 </main >
 
-
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
+
+
