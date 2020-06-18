@@ -4,17 +4,17 @@ include "includes/db.php";
 ?>
 
 <?php
-//requete get all data from relation table
 
-$requete = $db -> query( 'SELECT destinations.id,destinations.location,destinations.days,destinations.price 
-                          FROM tour_operators 
-                          inner join destinations  
-                          on tour_operators.id = destinations.id_tour_operator ' );
-                         
-$requete2 = $db -> query( 'SELECT destinations.location,destinations.days,destinations.price, images.img_url 
-                          from destinations 
-                          inner join images  on destinations.id = images.id_destination
-                          group by destinations.location' );
+
+ 
+
+$getAllDestinations = "SELECT * FROM destinations inner join tour_operators where destinations.id_tour_operator = tour_operators.id group by destinations.location";
+//prepare the request
+$getAllDestinationsRequest = $db-> query( $getAllDestinations );
+//execute the request
+ $getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll();
+
+
 
 ?>
 
@@ -66,21 +66,22 @@ $requete2 = $db -> query( 'SELECT destinations.location,destinations.days,destin
     </div>
 </section> -->
 
-
         <div class="card-columns">
-        <?php while ( $donnees = $requete2 -> fetch() ) : ?>
+        <?php foreach($getAllDestinationsStatements as $getAllDestinationsStatement): ?>
                 <div class="card" id="myDIV">
+                
                     <img
                             class="card-img-top img-fluid"
-                            src="<?= $donnees[ 'img_url' ] ?>"
+                            src="<?= $getImagesStatement[ 'img_url' ] ?>"
                             alt=""
                     />
+              
                     <div class="to-card_body card-body">
-                        <h4 class="card-title to-card_body-title text-center"><?= $donnees[ 'location' ] ?></h4 >
+                        <h4 class="card-title to-card_body-title text-center"><?= $getAllDestinationsStatement[ 'location' ] ?></h4 >
                         <div class="to-card_body-content my-4">
-                    <span class="badge badge-warning to-card_body-content_time"><?= $donnees[ 'days' ] ?> jours</span >
+                    <span class="badge badge-warning to-card_body-content_time"><?= $getAllDestinationsStatement[ 'days' ] ?> jours</span >
 
-                            <span class="badge badge-primary to-card_body-content_price"><?= $donnees[ 'price' ] ?> €</span >
+                            <span class="badge badge-primary to-card_body-content_price"><?= $getAllDestinationsStatement[ 'price' ] ?> €</span >
                         </div >
                         <p class="card-text to-card_body-description text-center">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -91,9 +92,13 @@ $requete2 = $db -> query( 'SELECT destinations.location,destinations.days,destin
                         <div class="to-card to-card_footer">
 
                             <div class="to-card to-card_footer-btn">
+                            
                                 <a
                                         class="btn btn-outline-warning rounded-0 to-card_footer-btn"
-                                        href="user_destination.php"
+                                        href="user_destination.php?id=<?=$getAllDestinationsStatement['location'] ?>"
+                            
+
+
                                 >Read
                                  More</a >
                             </div >
@@ -103,13 +108,9 @@ $requete2 = $db -> query( 'SELECT destinations.location,destinations.days,destin
                         </div >
                     </div >
                 </div >
-        <?php endwhile; ?>
+            <?php endforeach; ?>
     </main >
 </div >
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
-
-
-

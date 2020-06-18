@@ -7,19 +7,28 @@ include "includes/db.php";
 <?php
 //requete get all data from relation table
 
-$requete3 = $db -> query( 'SELECT *
-                          FROM  destinations
-                          inner join tour_operators  
-                          on tour_operators.id = destinations.id_tour_operator
-                          group by destinations.location' );
-$donnees =$requete3->fetchAll();
+
 
 /* $requete = $db -> query( 'SELECT destinations.location,destinations.days,destinations.price, images.img_url 
                           from destinations 
                           inner join images  on destinations.id = images.id_destination
                           group by destinations.location' ); */
 ?>
+<?php
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    $getAllDestinationsTO = "SELECT * FROM destinations inner  join tour_operators on destinations.id_tour_operator=tour_operators.id  where location= ?";
+    $request=$db->prepare($getAllDestinationsTO);
+    $request->execute(array($id));
+    $patients=$request->fetchAll();
 
+    $getAllDestinationsTO2 = "SELECT * FROM destinations inner  join tour_operators on destinations.id_tour_operator=tour_operators.id  where location= ? group by location";
+    $request2=$db->prepare($getAllDestinationsTO2);
+    $request2->execute(array($id));
+    $patients2=$request2->fetchAll();
+
+}
+?>
 <!doctype html>
 <?php include "partials/head.php"; ?>
 <body >
@@ -28,9 +37,8 @@ $donnees =$requete3->fetchAll();
 
 </header >
 <main class="destination-main">
-<?php foreach ( $donnees as $donnee) : ?>
-<h1 class="display-2 text-center my-4"><?= $donnee[ 'location' ] ?></h1>
-
+<?php foreach($patients2 as $patient2): ?>
+<h1 class="display-2 text-center my-4"><?= $patient2[ 'location' ] ?></h1>
 <?php endforeach; ?>
 
     <section >
@@ -82,6 +90,7 @@ $donnees =$requete3->fetchAll();
                                                        Operator</h3 >
             </div >
         </div >
+        <?php foreach($patients as $patient): ?>
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="media border p-3 flex-column flex-md-row">
@@ -89,10 +98,11 @@ $donnees =$requete3->fetchAll();
                             src="images/images1.jpeg" alt="#" class="mr-3"
                             style="width:250px;"
                     >
+                  
+
                     <div class="media-body align-self-center">
-                    <?php foreach ( $donnees as $donnee) : ?>
-                            <h4 ><?= $donnee[ 'name' ] ?><small ><i ><?= $donnee[ 'days' ] ?><?= $donnee[ 'price' ] ?></i ></small >
-                        <?php endforeach; ?>
+                            <h4 ><?= $patient[ 'name' ] ?>
+                       
                         </h4 >
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Nam vel ipsum aliquam metus facilisis scelerisque.
@@ -102,35 +112,18 @@ $donnees =$requete3->fetchAll();
                             ridiculus mus. Phasellus at aliquet dui. Mauris dapibus
                             lectus id laoreet iaculis. Duis auctor augue augue, eget
                             lobortis quam auctor at.</p >
-                    </div >
-                </div >
-            </div >
-        </div >
-        <div class="row">
-            <div class="col-12 mb-4">
-                <div class="media border p-3 flex-column flex-md-row">
-                    <div class="media-body align-self-center">
-                        <?php foreach ( $donnees as $donnee) : ?>
-                            <h4 ><?= $donnee[ 'name' ] ?><small ><i ><?= $donnee[ 'days' ] ?><?= $donnee[ 'price' ] ?></i ></small >
-                        <?php endforeach; ?>
 
-                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Nam vel ipsum aliquam metus facilisis scelerisque.
-                            Quisque vitae condimentum nulla. Vestibulum lobortis
-                            ullamcorper augue id consequat. Orci varius natoque
-                            penatibus et magnis dis parturient montes, nascetur
-                            ridiculus mus. Phasellus at aliquet dui. Mauris dapibus
-                            lectus id laoreet iaculis. Duis auctor augue augue, eget
-                            lobortis quam auctor at.
-                        </p >
+                            <class="d-flex justify-content-center"><a
+                                        class="btn btn-warning w-50"
+                                        href="user_tour_operator.php?id=<?=$patient['name'] ?>"
+                                >Book</a >
                     </div >
-                    <img
-                        src="images/images1.jpeg" alt="#" class="mr-3"
-                        style="width:250px;"
-                    >
                 </div >
             </div >
         </div >
+        <?php endforeach; ?>
+
+
     </div >
     </section>
     </div >

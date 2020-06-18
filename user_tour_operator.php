@@ -1,7 +1,28 @@
 <?php
 
 include "includes/class-autoload.inc.php";
+include "includes/db.php";
+
 ?>
+
+
+
+
+<?php
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    $getAllDestinationsTO = "SELECT * FROM tour_operators   where name= ?";
+    $request=$db->prepare($getAllDestinationsTO);
+    $request->execute(array($id));
+    $patients=$request->fetchAll();
+
+}
+?>
+
+
+
+
+
 
 <!doctype html>
 
@@ -13,7 +34,10 @@ include "includes/class-autoload.inc.php";
 </header >
 <main class="destination-main">
     <div class="container">
-        <h1 class="display-1 text-center"> Club med </h1 >
+    <?php foreach($patients as $patient): ?>
+        <h1 class="display-1 text-center"> <?= $patient[ 'name' ] ?> </h1 >
+        <?php endforeach; ?>
+
         <div class="row mb-3">
             <div class="col-12">
                 <div class="media border p-3 flex-column flex-md-row">
