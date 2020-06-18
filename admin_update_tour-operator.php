@@ -10,8 +10,6 @@ $grade = $tourOperator[ 'grade' ];
 $link = $tourOperator[ 'link' ];
 $is_premium = $tourOperator[ 'is_premium' ];
 ?>
-
-
 <!doctype html>
 <?php include "partials/head.php"; ?>
 <body >
