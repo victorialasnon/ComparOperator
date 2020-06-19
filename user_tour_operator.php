@@ -16,7 +16,10 @@ if(isset($_GET['id'])){
     $request->execute(array($id));
     $patients=$request->fetchAll();
     
-
+    $getAllReviews = "SELECT * FROM reviews inner  join tour_operators on reviews.id_tour_operator=tour_operators.id    where name= ?";
+    $request2=$db->prepare($getAllReviews);
+    $request2->execute(array($id));
+    $patients2=$request2->fetchAll();
 }
 ?>
 
@@ -97,26 +100,19 @@ if(isset($_GET['id'])){
                             />
                         </div >
                         <div class="col-md-10">
+                        <?php foreach($patients2 as $patient2): ?>
                             <p >
                                 <a
                                         class="float-left"
                                         href="https://maniruzzaman-akash.blogspot.com/p/contact.html"
-                                ><strong >Maniruzzaman Akash</strong ></a >
+                                ><strong ><?= $patient2[ 'author' ] ?></strong ></a >
                             <p class="float-right">12-06-2020</span>
 
 
                             </p >
                             <div class="clearfix"></div >
-                            <p >Lorem Ipsum is simply dummy text of the pr make but
-                                also the leap into electronic typesetting, remaining
-                                essentially
-                                unchanged. It was popularised in the 1960s with the
-                                release of Letraset sheets containing Lorem Ipsum
-                                passages,
-                                and more recently with desktop publishing software
-                                like Aldus PageMaker including versions of Lorem
-                                Ipsum.</p >
-
+                            <p ><?= $patient2[ 'message' ] ?></p >
+                        <?php endforeach; ?>
                         </div >
 
                     </div >
@@ -124,7 +120,7 @@ if(isset($_GET['id'])){
 
             </div >
             <div class="reviews-btn d-flex justify-content-center my-4">
-                <a class="btn btn-outline-primary" href="user_add_review.php">add
+                <a class="btn btn-outline-primary" href="user_add_review.php?id=<?=$patient['name'] ?>">add
                                                                               a
                                                                               review</a >
             </div >
