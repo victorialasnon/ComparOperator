@@ -37,20 +37,6 @@ include "includes/class-autoload.inc.php";
                                 href="./tourOperator_index.php"
                         >HOME</a >
                     </li >
-
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="tourOperator_getTo.php"
-                        >Destinations</a >
-                    </li >
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-reviews.php"
-                        >See Reviews</a >
-                    </li >
-
                 </ul >
             </div >
         </div >
