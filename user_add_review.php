@@ -1,4 +1,4 @@
-a<?php
+<?php
 include "includes/class-autoload.inc.php";
 ?>
 <!doctype html>
@@ -11,8 +11,8 @@ include "includes/class-autoload.inc.php";
 <main class="destination-main mt-4">
     <h3 class="display-4 text-center mb-3">Add a Review</h3 >
     <div class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row ">
+            <div class="col-6">
                 <form
                         class="form-group" method="post"
                         action="user_tour_operator.php"
@@ -30,21 +30,13 @@ include "includes/class-autoload.inc.php";
                     <div class="form-group mb-5">
                         <label for="message">Message</label >
                         <textarea
-                               class="form-control" id="message" rows="3"
+                               class="form-control" id="message" rows="3" name="author"
                         ></textarea >
                     </div >
-                    <div class="col ">
-                        <select class="form-control" id="gender">
-                            <option >Tour Operator</option >
-                            <option >Club med</option >
-                            <option >Simplon</option >
-                            <option >Numeriparc</option >
-                            <option >Roanne Game</option >
-                        </select >
-                    </div >
+
                     <div class="btn d-flex justify-content-center">
 
-                        <button class="btn btn-primary" type="submit">Submit
+                        <button class="btn btn-primary" name="submitReview" type="submit">Submit
                         </button >
                     </div >
                 </form >
