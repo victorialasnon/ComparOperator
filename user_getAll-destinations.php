@@ -14,18 +14,16 @@ $getAllDestinations = "SELECT * FROM destinations inner join tour_operators
 //prepare the request
 $getAllDestinationsRequest = $db-> query( $getAllDestinations );
 //execute the request
- $getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll();
+ $getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll(PDO::FETCH_ASSOC);
 
 
 
-$getAllImages = "SELECT destinations.location,destinations.days,destinations.price, images.img_url
+$getAllImages = "SELECT destinations.location,destinations.days,destinations.price, images.img_url, images.id_destination
                  from destinations
                  inner join images  on destinations.id = images.id_destination
                  group by destinations.location";
 $getAllImagesRequest = $db-> query( $getAllImages );
-$getAllImagesStatements=$getAllImagesRequest -> fetchAll();
-
-
+$getAllImagesStatements=$getAllImagesRequest -> fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!doctype html>
@@ -77,15 +75,14 @@ $getAllImagesStatements=$getAllImagesRequest -> fetchAll();
 </section> -->
 
         <div class="card-columns">
-        <?php foreach($getAllDestinationsStatements as $getAllDestinationsStatement): ?>
+        <?php foreach($getAllImagesStatements as $getAllDestinationsStatement): ?>
                 <div class="card" id="myDIV">
-                <?php foreach($getAllImagesStatements as $getAllImagesStatement): ?>
                     <img
                             class="card-img-top img-fluid"
-                            src="<?= $getImagesStatement[ 'img_url' ] ?>"
+                            src="<?= $getAllDestinationsStatement[ 'img_url' ] ?>"
                             alt=""
                     />
-                    <?php endforeach; ?>
+                    
               
                     <div class="to-card_body card-body">
                         <h4 class="card-title to-card_body-title text-center"><?= $getAllDestinationsStatement[ 'location' ] ?></h4 >
