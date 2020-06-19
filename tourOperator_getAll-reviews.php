@@ -1,5 +1,6 @@
 <?php
 include "includes/class-autoload.inc.php";
+$reviews = new Manager();
 $db_host = 'mysql:host=127.0.0.1;';
 $db_name = 'dbname=ComparOperator';
 $db_hn = $db_host . $db_name;
@@ -66,53 +67,55 @@ $patients=$request->fetchAll();
 
 </header >
 
-<main class="destination-main">
-    <h1 class="text-center display-4 my-4">REVIEWS DATABASE</h1 >
-
+<main class="reviews-main">
     <div class="container">
-        <div class="row">
-
-                <div class="col-md-6 mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h3 card-title text-capitalize text-primary">
-                               Club Med
-                            </h5 >
-                            <hr >
-                            <h5 class="card-title text-capitalize text-primary
-                            text-">
-                                <u>Review</u> :
-                            </h5 >
-                            <p class="card-text ">
-                                it's was amazing
-
-                            </p >
-                            <h6 class="card-subtitle text-muted ">
-                               Author: <span class="text-info h5">usher></span>
-                            </h6 >
-                            <a
-                                    href="tourOperator_delete_reviews.php"
-                                    class=" btn text-white
-                                btn-danger float-right "
-                            >
-                                <i class="fa fa-trash"></i > Delete
-                            </a >
-                        </div >
-                    </div >
+        <div class="jumbotron-fluid mt-4">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h3 class="card-title">REVIEWS DATABASE</h3 >
                 </div >
-        </div >
-    </div >
-    <div class="container">
-        <div class="row">
+            </div >
+            <div class="card-body">
+                <table class="table table-info">
+                    <thead >
+                    <tr >
+                        <th scope="col">Author</th >
+                        <th scope="col">Message</th >
 
-            <div class="col-md-6 mt-4">
-                <?php foreach ($patients as $patient) :?>
-                    <p>  <?= $patient[ 'message' ] ?> </p>
-                    <p>  <?= $patient[ 'author' ] ?> </p>
-                <?php endforeach; ?>
+                        <th class="text-center">Actions</th >
+                    </tr >
+                    </thead >
+                    <tbody >
+                    <!-- display of all tour operator by
+                    calling the method from Manager Class-->
+                    <?php if ($reviews -> getAllReviews()): ?>
+                        <?php foreach ($reviews -> getAllReviews() as
+                                       $review): ?>
+                            <tr >
+                                <td width="250px"><?= $review[ 'author' ]
+                                    ?></td >
+                                <td width="250px"><?= $review[ 'message' ] ?></td >
+
+                                <td class="text-center">
+                                    <a
+                                            href="tourOperator_delete_destinations
+                                            .php?id=<?= $review[ 'location' ]
+                                            ?>"
+                                            class="btn
+                                    btn-danger"
+                                            style="width: 80px;"
+                                    >Delete
+                                    </a >
+                                </td >
+
+                            </tr >
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    </tbody >
+                </table >
             </div >
         </div >
-    </div >
+
 </main >
 <?php include "./partials/footer.php"; ?>
 </body >

@@ -54,26 +54,50 @@ class Manager extends Dbh
         $deleteTourOperatorStatement -> execute( array( $id ) );
     }
 
-    public function createDestination()
+
+
+    public function getAllDestinations(  )
     {
+        //putting sql request in variable
+        $id=$_GET['id'];
+        $getOperator = "SELECT * FROM destinations inner  join tour_operators 
+                            on destinations.id_tour_operator=tour_operators.id where name=? ";
 
-    }
+        //prepare the request
+        $getOperatorStatement = $this -> connect() -> prepare( $getOperator );
+        //execute the request
+        $getOperatorStatement -> execute(array($id));
+        while ( $getOperatorResult = $getOperatorStatement -> fetchAll() ) {
+            //return the request array
+            return $getOperatorResult;
+        }
+}
 
-
-    public function getOperatorByDestination()
+    public function startUpdateDestinations( $id )
     {
+        $startUpdateTourOperator = "SELECT * FROM destinations WHERE name = ?";
+        $startUpdateTourOperatorStatement = $this -> connect() -> prepare(
+            $startUpdateTourOperator );
+        $startUpdateTourOperatorStatement -> execute( array( $id ) );
 
-    }
+        return $startUpdateTourOperatorStatement -> fetch();
+}
 
-    public function userCreateReview()
+    public function getAllReviews(  )
     {
+        //putting sql request in variable
+        $id=$_GET['id'];
+        $getOperator = "SELECT * FROM reviews inner  join tour_operators 
+                            on reviews.id_tour_operator=tour_operators.id where name=? ";
 
-    }
-
-    public function getReviewByOperatorId()
-    {
-
-    }
-
+        //prepare the request
+        $getOperatorStatement = $this -> connect() -> prepare( $getOperator );
+        //execute the request
+        $getOperatorStatement -> execute(array($id));
+        while ( $getOperatorResult = $getOperatorStatement -> fetchAll() ) {
+            //return the request array
+            return $getOperatorResult;
+        }
+}
 
 }
