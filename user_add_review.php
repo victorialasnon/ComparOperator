@@ -1,4 +1,4 @@
-a<?php
+<?php
 include "includes/class-autoload.inc.php";
 ?>
 <!doctype html>

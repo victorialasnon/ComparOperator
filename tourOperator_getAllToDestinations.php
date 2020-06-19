@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "includes/class-autoload.inc.php";
+
 $db_host = 'mysql:host=127.0.0.1;';
 $db_name = 'dbname=ComparOperator';
 $db_hn = $db_host . $db_name;

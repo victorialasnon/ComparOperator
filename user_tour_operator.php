@@ -90,6 +90,7 @@ if(isset($_GET['id'])){
         <div class="container">
             <h1 class="display-4 text-center text-warning"> What Our customer
                                                             think...</h1 >
+                        <?php foreach($patients2 as $patient2): ?>
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
@@ -100,7 +101,7 @@ if(isset($_GET['id'])){
                             />
                         </div >
                         <div class="col-md-10">
-                        <?php foreach($patients2 as $patient2): ?>
+
                             <p >
                                 <a
                                         class="float-left"
@@ -112,13 +113,13 @@ if(isset($_GET['id'])){
                             </p >
                             <div class="clearfix"></div >
                             <p ><?= $patient2[ 'message' ] ?></p >
-                        <?php endforeach; ?>
                         </div >
 
                     </div >
                 </div >
 
             </div >
+                        <?php endforeach; ?>
             <div class="reviews-btn d-flex justify-content-center my-4">
                 <a class="btn btn-outline-primary" href="user_add_review.php?id=<?=$patient['name'] ?>">add
                                                                               a
