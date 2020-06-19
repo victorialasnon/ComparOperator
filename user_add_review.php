@@ -1,4 +1,4 @@
-<?php
+a<?php
 include "includes/class-autoload.inc.php";
 ?>
 <!doctype html>
@@ -30,7 +30,7 @@ include "includes/class-autoload.inc.php";
                     <div class="form-group mb-5">
                         <label for="message">Message</label >
                         <textarea
-                                class="form-control" id="message" rows="3"
+                               class="form-control" id="message" rows="3"
                         ></textarea >
                     </div >
                     <div class="col ">
