@@ -8,12 +8,22 @@ include "includes/db.php";
 
  
 
-$getAllDestinations = "SELECT * FROM destinations inner join tour_operators where destinations.id_tour_operator = tour_operators.id group by destinations.location";
+$getAllDestinations = "SELECT * FROM destinations inner join tour_operators 
+                       where destinations.id_tour_operator = tour_operators.id 
+                       group by destinations.location";
 //prepare the request
 $getAllDestinationsRequest = $db-> query( $getAllDestinations );
 //execute the request
  $getAllDestinationsStatements=$getAllDestinationsRequest -> fetchAll();
 
+
+
+$getAllImages = "SELECT destinations.location,destinations.days,destinations.price, images.img_url
+                 from destinations
+                 inner join images  on destinations.id = images.id_destination
+                 group by destinations.location";
+$getAllImagesRequest = $db-> query( $getAllImages );
+$getAllImagesStatements=$getAllImagesRequest -> fetchAll();
 
 
 ?>
@@ -69,12 +79,13 @@ $getAllDestinationsRequest = $db-> query( $getAllDestinations );
         <div class="card-columns">
         <?php foreach($getAllDestinationsStatements as $getAllDestinationsStatement): ?>
                 <div class="card" id="myDIV">
-                
+                <?php foreach($getAllImagesStatements as $getAllImagesStatement): ?>
                     <img
                             class="card-img-top img-fluid"
                             src="<?= $getImagesStatement[ 'img_url' ] ?>"
                             alt=""
                     />
+                    <?php endforeach; ?>
               
                     <div class="to-card_body card-body">
                         <h4 class="card-title to-card_body-title text-center"><?= $getAllDestinationsStatement[ 'location' ] ?></h4 >
@@ -105,6 +116,7 @@ $getAllDestinationsRequest = $db-> query( $getAllDestinations );
                         </div >
                     </div >
                 </div >
+            
             <?php endforeach; ?>
     </main >
 </div >
