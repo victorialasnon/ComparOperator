@@ -41,7 +41,7 @@ include "includes/class-autoload.inc.php";
                     <li class="nav-item">
                         <a
                                 class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-destination.php"
+                                href="tourOperator_getTo.php"
                         >Destinations</a >
                     </li >
                     <li class="nav-item active">
