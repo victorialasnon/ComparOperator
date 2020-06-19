@@ -1,6 +1,30 @@
 <?php
-session_start();
 include "includes/class-autoload.inc.php";
+//objet tourOperator from Manager class
+//$destinations = new Manager();
+//$tourOperators = new Manager();
+
+$db_host = 'mysql:host=127.0.0.1;';
+$db_name = 'dbname=ComparOperator';
+$db_hn = $db_host . $db_name;
+$db_username = 'root';
+$db_password = '';
+
+try {
+    $db = new PDO( $db_hn , $db_username , $db_password );
+    $db -> setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
+//    echo "Successful Connexion";
+} catch (PDOException $e) {
+    echo "Connection Failed : " . $e -> getMessage();
+}
+    $id=$_GET['id'];
+//request to get the tour opertor name
+$getAllDestinationsTO = "SELECT * FROM destinations 
+                            inner  join tour_operators 
+                            on destinations.id_tour_operator=tour_operators.id where name=? ";
+$request=$db->prepare($getAllDestinationsTO);
+$request->execute(array($id));
+$patients=$request->fetchAll();
 ?>
 <!doctype html>
 <?php include "partials/head.php"; ?>
@@ -31,17 +55,17 @@ include "includes/class-autoload.inc.php";
                     id="navbarResponsive"
             >
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a
                                 class="nav-link js-scroll-trigger"
                                 href="./tourOperator_index.php"
                         >HOME</a >
                     </li >
 
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a
                                 class="nav-link js-scroll-trigger"
-                                href="tourOperator_getTo.php"
+                                href="./tourOperator_getAll-destination.php"
                         >Destinations</a >
                     </li >
                     <li class="nav-item">
@@ -58,47 +82,15 @@ include "includes/class-autoload.inc.php";
 
 </header >
 <main class="destination-main">
-    <h1 class="display-4 text-center my-5">Tour Operator Main Page</h1 >
-    <hr class="w-75 h-50 d-flex align-self-center">
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <h3 class="text-center mb-3">Get Connect</h3 >
-                <form
-                        method="post"
-                        action="tourOperator_getAllToDestinations.php"
-                >
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Tour Operator Name</label >
-                        <input
-                                type="text" class="form-control"
-                                id="exampleInputEmail1" name="toName"
-                                aria-describedby="emailHelp" required
-
-                        >
-                        <small
-                                id="emailHelp" class="form-text
-                        text-muted"
-                        >You will always be important for us.</small >
-                    </div >
-                    <button
-                            type="submit" name="submit" value="submit" class="btn
-                    btn-primary"
-                    > Connect
-                    </button >
-                </form >
-            </div >
-        </div >
-    </div >
-
+    <?php foreach ($patients as $patient) :?>
+    <p>  <?= $patient[ 'location' ] ?> </p>
+    <p>  <?= $patient[ 'days' ] ?> </p>
+    <p>  <?= $patient[ 'price' ] ?> </p>
+    <?php endforeach; ?>
 
 </main >
-
-
 <?php include "./partials/footer.php"; ?>
 </body >
 </html >
-
 
 

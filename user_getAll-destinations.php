@@ -96,9 +96,6 @@ $getAllDestinationsRequest = $db-> query( $getAllDestinations );
                                 <a
                                         class="btn btn-outline-warning rounded-0 to-card_footer-btn"
                                         href="user_destination.php?id=<?=$getAllDestinationsStatement['location'] ?>"
-                            
-
-
                                 >Read
                                  More</a >
                             </div >

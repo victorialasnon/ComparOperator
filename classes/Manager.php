@@ -52,8 +52,6 @@ class Manager extends Dbh
         $deleteTourOperator = "DELETE FROM tour_operators WHERE id= ?";
         $deleteTourOperatorStatement = $this -> connect() -> prepare( $deleteTourOperator );
         $deleteTourOperatorStatement -> execute( array( $id ) );
-
-        return $deleteTourOperatorStatement -> fetch();
     }
 
     public function createDestination()
@@ -61,26 +59,6 @@ class Manager extends Dbh
 
     }
 
-    public function getAllDestinations( $id )
-    {
-        //putting sql request in variable
-        $getAllDestinations = "SELECT destinations.id,destinations.location, destinations.days, destinations.price, tour_operators.name
-                               FROM destinations 
-                               INNER JOIN tour_operators 
-                               on destination.id_tour_operator = tour_operators.id";
-
-
-
-        //prepare the request
-        $getAllDestinationsStatement = $this -> connect() -> prepare( $getAllDestinations );
-        //execute the request
-       echo $getAllDestinationsStatement -> execute($id);
-        while ( $getDestinationResult = $getAllDestinationsStatement -> fetch()
-        ) {
-            //return the request array
-            return $getDestinationResult;
-        }
-    }
 
     public function getOperatorByDestination()
     {
@@ -97,30 +75,5 @@ class Manager extends Dbh
 
     }
 
-    public function startUpdateDestinations( $id )
-    {
-        $startUpdateDestinations = "SELECT * FROM destinations WHERE id = ?";
-        $startUpdateDestinationsStatement = $this -> connect() -> prepare(
-            $startUpdateDestinations );
-        $startUpdateDestinationsStatement -> execute( array( $id ) );
-
-        return $startUpdateDestinationsStatement -> fetch();
-    }
-
-    public function updateDestinations($location,$days,$price,$id_tour_operator,$id)
-    {
-        $updateDestinations= "UPDATE destinations SET destinations.location = ? ,days = ?,price = ?, id_tour_operator= ? WHERE id= ?";
-        $updateDestinationsStatement= $this->connect()->prepare($updateDestinations);
-        $updateDestinationsStatement->execute(array($location,$days,$price,
-            $id_tour_operator,$id));
-
-    }
-
-    public function deleteDestinations()
-    {
-        $deleteDestinations = "DELETE FROM destinations WHERE id = ?";
-        $deleteDestinationsStatement = $this->connect()($deleteDestinations);
-        $deleteDestinationsStatement->execute(array ($id));
-    }
 
 }
