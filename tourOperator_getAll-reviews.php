@@ -1,5 +1,26 @@
 <?php
 include "includes/class-autoload.inc.php";
+$db_host = 'mysql:host=127.0.0.1;';
+$db_name = 'dbname=ComparOperator';
+$db_hn = $db_host . $db_name;
+$db_username = 'root';
+$db_password = '';
+
+try {
+    $db = new PDO( $db_hn , $db_username , $db_password );
+    $db -> setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
+//    echo "Successful Connexion";
+} catch (PDOException $e) {
+    echo "Connection Failed : " . $e -> getMessage();
+}
+$id=$_GET['id'];
+//request to get the tour opertor name
+$getAllDestinationsTO = "SELECT * FROM reviews 
+                            inner  join tour_operators 
+                            on reviews.id_tour_operator=tour_operators.id where name=? ";
+$request=$db->prepare($getAllDestinationsTO);
+$request->execute(array($id));
+$patients=$request->fetchAll();
 ?>
 <!doctype html>
 <?php include "partials/head.php"; ?>
@@ -38,19 +59,6 @@ include "includes/class-autoload.inc.php";
                         >HOME</a >
                     </li >
 
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="tourOperator_getTo.php"
-                        >Destinations</a >
-                    </li >
-                    <li class="nav-item active">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-reviews.php"
-                        >See Reviews</a >
-                    </li >
-
                 </ul >
             </div >
         </div >
@@ -60,6 +68,7 @@ include "includes/class-autoload.inc.php";
 
 <main class="destination-main">
     <h1 class="text-center display-4 my-4">REVIEWS DATABASE</h1 >
+
     <div class="container">
         <div class="row">
 
@@ -81,15 +90,27 @@ include "includes/class-autoload.inc.php";
                             <h6 class="card-subtitle text-muted ">
                                Author: <span class="text-info h5">usher></span>
                             </h6 >
-                            <button
+                            <a
+                                    href="tourOperator_delete_reviews.php"
                                     class=" btn text-white
                                 btn-danger float-right "
                             >
                                 <i class="fa fa-trash"></i > Delete
-                            </button >
+                            </a >
                         </div >
                     </div >
                 </div >
+        </div >
+    </div >
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 mt-4">
+                <?php foreach ($patients as $patient) :?>
+                    <p>  <?= $patient[ 'message' ] ?> </p>
+                    <p>  <?= $patient[ 'author' ] ?> </p>
+                <?php endforeach; ?>
+            </div >
         </div >
     </div >
 </main >

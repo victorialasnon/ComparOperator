@@ -66,19 +66,6 @@ if ( isset( $_GET[ 'id' ] ) ) {
                         >HOME</a >
                     </li >
 
-                    <li class="nav-item active">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-destination.php"
-                        >Destinations</a >
-                    </li >
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-reviews.php"
-                        >See Reviews</a >
-                    </li >
-
                 </ul >
             </div >
         </div >
@@ -112,6 +99,10 @@ if ( isset( $_GET[ 'id' ] ) ) {
                             href="tourOperator_getTo.php?id=<?= $name ?>" class="btn
                     btn-info"
                     >See all your Destinations</a >
+                    <a
+                            href="tourOperator_getAll-reviews.php?id=<?= $name ?>" class="btn
+                    btn-primary"
+                    >See Customers Reviews</a >
                 <?php else: ?>
                     <div class="row justify-content-center">
                         <div

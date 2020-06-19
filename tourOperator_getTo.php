@@ -62,18 +62,7 @@ $patients=$request->fetchAll();
                         >HOME</a >
                     </li >
 
-                    <li class="nav-item active">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-destination.php"
-                        >Destinations</a >
-                    </li >
-                    <li class="nav-item">
-                        <a
-                                class="nav-link js-scroll-trigger"
-                                href="./tourOperator_getAll-reviews.php"
-                        >See Reviews</a >
-                    </li >
+
 
                 </ul >
             </div >
