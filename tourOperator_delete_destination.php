@@ -71,7 +71,7 @@ include "includes/class-autoload.inc.php";
 
                     <div class="form-btn float-right">
                         <a
-                            href="tourOperator_getAll-destination.php"
+                            href="tourOperator_getTo.php"
                             class="btn btn-warning text-white"
 
                         >Cancel
